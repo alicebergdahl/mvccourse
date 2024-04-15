@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dra kort{% endblock %}
+
+{% block body %}
+
+<div class="content">
+    <div class="row">
+        <h1>Dra kort</h1>
+    </div>
+    
+    <div class="row">
+        <div class="column">
+            <div>
+                <h2>Dragna kort:</h2>
+                <ul>
+                    {% for card in drawnCards %}
+                        <li>{{ card.getSuit() }}  {{ card.getValue() }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <p>Kort kvar i leken: {{ remainingCards }}</p>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
