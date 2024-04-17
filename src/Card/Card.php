@@ -4,8 +4,16 @@ namespace App\Card;
 
 class Card
 {
+    /**
+     * @var string
+     */
     protected $suit;
+
+    /**
+     * @var string
+     */
     protected $value;
+
 
     public function __construct(string $suit, string $value)
     {
@@ -25,6 +33,6 @@ class Card
 
     public function __toString(): string
     {
-        return "{$this->value} of {$this->suit}";
+        return "{$this->value} {$this->suit}";
     }
 }

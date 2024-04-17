@@ -88,6 +88,12 @@
                 "php -d memory_limit=-1 tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src --dry-run -v"
             ]
         },
+        "phpmd": "tools/phpmd/vendor/bin/phpmd . text tools/phpmd/phpmd.xml || true",
+        "phpstan": "tools/phpstan/vendor/bin/phpstan analyse -c tools/phpstan/phpstan.neon || true",
+        "lint": [
+            "@phpmd",
+            "@phpstan"
+        ],
         "post-install-cmd": [
             "@auto-scripts"
         ],

@@ -27,7 +27,7 @@ class CardControllerJson extends AbstractController
         return new JsonResponse($cards);
     }
 
-    private function mapSuit($unicodeSuit): string
+    private function mapSuit(string $unicodeSuit): string
     {
         switch ($unicodeSuit) {
             case '♥':

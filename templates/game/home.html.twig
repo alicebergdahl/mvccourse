@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}21 - Kortspel{% endblock %}
+
+{% block body %}
+<div class="content">
+    <div class="row">
+        <h1>21 - Kortspel</h1>
+    </div>
+
+    <div class="row">
+        <div class="column">
+            <p>Välkommen till 21 - Kortspel! Spela mot banken och försök nå så nära 21 som möjligt utan att överstiga det.</p>
+
+            <h2>Regler:</h2>
+            <ul>
+                <li>Du och banken tar tur att dra kort.</li>
+                <li>Spelet vinner du om din summa är närmare 21 än bankens utan att överstiga.</li>
+                <li>Ess kan vara värt 1 eller 14.</li>
+                <li>Om du överstiger 21 förlorar du automatiskt.</li>
+            </ul>
+
+            <a href="{{ path('start_game') }}" class="btn btn-primary">Starta spelet</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
