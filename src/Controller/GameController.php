@@ -34,7 +34,7 @@ class GameController extends AbstractController
             'gameOver' => false,
         ]);
     }
-    
+
     #[Route("/game/draw", name: "draw_card", methods: ["GET", "POST"])]
     public function drawCard(Request $request): Response
     {
@@ -71,7 +71,7 @@ class GameController extends AbstractController
                 'winMessage' => 'Game over'
             ]);
         }
-    
+
         return $this->render('game/play.html.twig', [
             'playerHand' => $playerHand,
             'bankHand' => null,
@@ -105,7 +105,7 @@ class GameController extends AbstractController
 
         $playerTotal = $this->calculateHandValue($playerHand);
         $bankTotal = $this->calculateHandValue($bankHand);
-    
+
         if ($bankTotal > 21) {
             return $this->render('game/play.html.twig', [
                 'playerHand' => $playerHand,
@@ -146,7 +146,7 @@ class GameController extends AbstractController
             ]);
         }
     }
-    
+
     /**
      * Calculates the total value of a hand.
      *

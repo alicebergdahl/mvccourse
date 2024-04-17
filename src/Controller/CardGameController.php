@@ -63,28 +63,28 @@ class CardGameController extends AbstractController
     public function drawCards(int $number, SessionInterface $session): Response
     {
         $deck = $session->get('deck');
-    
+
         if (!$deck) {
             $deck = new DeckOfCards();
             $session->set('deck', $deck);
         }
-    
+
         $drawnCards = $deck->deal($number)->getCards();
         $remainingCards = count($deck->getCards());
-    
+
         $drawnCardsSession = $session->get('drawn_cards', []);
-    
+
         foreach ($drawnCards as $card) {
             $drawnCardsSession[] = [
                 'suit' => $this->mapSuit($card->getSuit()),
                 'value' => $card->getValue()
             ];
         }
-    
+
         $session->set('drawn_cards', $drawnCardsSession);
-    
+
         $session->set('deck', $deck);
-    
+
         return $this->render('card/draw.html.twig', [
             'drawnCards' => $drawnCards,
             'remainingCards' => $remainingCards,

@@ -10,7 +10,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class LuckyControllerJson extends AbstractController
 {
-
     #[Route("/api", name: "api_landing_page")]
     public function landingPage(): Response
     {
