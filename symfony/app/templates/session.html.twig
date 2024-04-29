@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Session{% endblock %}
+
+{% block body %}
+
+<div class="content">
+    <div class="row">
+        <h1>Session Debug</h1>
+    </div>
+    
+    <div class="row">
+        <div class="column">
+            <pre>
+                {{ session|json_encode(constant('JSON_PRETTY_PRINT')) }}
+            </pre>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
