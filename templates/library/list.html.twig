@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}List of Books{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Alla böcker</h1>
+    <div class="mb-2">
+        <a href="{{ path('add_book') }}" class="btn btn-primary">Lägg till ny bok</a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titel</th>
+                <th>Författare</th>
+                <th>ISBN</th>
+                <th>Detaljer</th>
+                <th>Radera</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>{{ book.name }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.ISBN }}</td>
+                <td>
+                    <a href="{{ path('view_book', {'id': book.id}) }}">Visa</a>
+                </td>
+                <td>
+                    <a href="{{ path('delete_book', {'id': book.id}) }}" 
+                       onclick="return confirm('Är du säker på att du vill radera denna bok?');">Radera</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
