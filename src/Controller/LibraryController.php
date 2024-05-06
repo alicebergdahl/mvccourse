@@ -55,7 +55,7 @@ class LibraryController extends AbstractController
             $entityManager->persist($book);
             $entityManager->flush();
 
-            return $this->redirectToRoute('list_books');
+            return $this->redirectToRoute('library_home');
         }
 
         return $this->render('library/add.html.twig', [
@@ -106,6 +106,6 @@ class LibraryController extends AbstractController
         $entityManager->remove($book);
         $entityManager->flush();
 
-        return $this->redirectToRoute('list_books');
+        return $this->redirectToRoute('library_home');
     }
 }
