@@ -57,6 +57,7 @@ class GameControllerTest extends WebTestCase
             $client->request('POST', '/game/draw');
         }
         $crawler = $client->getCrawler();
+        
         $gameOverText = $crawler->filter('.game-over-message')->text();
         $this->assertStringContainsString('Game over', $gameOverText);
     }
@@ -69,6 +70,7 @@ class GameControllerTest extends WebTestCase
         $client->request('POST', '/game/draw');
         $client->request('POST', '/game/stand');
         $crawler = $client->getCrawler();
+
         $gameOverText = $crawler->filter('.game-over-message')->text();
         $this->assertStringContainsString('Game over', $gameOverText);
     }
