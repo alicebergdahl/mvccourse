@@ -10,7 +10,6 @@ class GameControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request('GET', '/game');
-        $client->catchExceptions(false);
         $this->assertResponseIsSuccessful();
     }
 
@@ -18,7 +17,6 @@ class GameControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request('GET', '/game/start');
-        $client->catchExceptions(false);
         $this->assertResponseIsSuccessful();
     }
 
@@ -26,7 +24,6 @@ class GameControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request('POST', '/game/draw');
-        $client->catchExceptions(false);
         $this->assertResponseIsSuccessful();
     }
 
@@ -34,7 +31,6 @@ class GameControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request('GET', '/game/doc');
-        $client->catchExceptions(false);
         $this->assertResponseIsSuccessful();
     }
 
@@ -42,7 +38,6 @@ class GameControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request('POST', '/game/stand');
-        $client->catchExceptions(false);
         $this->assertResponseIsSuccessful();
     }
 
@@ -50,7 +45,6 @@ class GameControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request('GET', '/api/game');
-        $client->catchExceptions(false);
         $this->assertResponseIsSuccessful();
         $this->assertResponseHeaderSame('Content-Type', 'application/json');
     }
@@ -59,7 +53,6 @@ class GameControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request('GET', '/game/start');
-        $client->catchExceptions(false);
         for ($i = 0; $i < 10; $i++) {
             $client->request('POST', '/game/draw');
         }
@@ -76,7 +69,6 @@ class GameControllerTest extends WebTestCase
         $client->request('POST', '/game/draw');
         $client->request('POST', '/game/draw');
         $client->request('POST', '/game/stand');
-        $client->catchExceptions(false);
         $crawler = $client->getCrawler();
 
         $gameOverText = $crawler->filter('.game-over-message')->text();
@@ -91,7 +83,6 @@ class GameControllerTest extends WebTestCase
         $client->request('POST', '/game/draw');
         $client->request('POST', '/game/draw');
         $response = $client->request('GET', '/api/game');
-        $client->catchExceptions(false);
         $content = $client->getResponse()->getContent();
 
         if (!is_string($content)) {
@@ -115,7 +106,6 @@ class GameControllerTest extends WebTestCase
         $client->request('POST', '/game/draw');
         $client->request('POST', '/game/draw');
         $client->request('POST', '/game/stand');
-        $client->catchExceptions(false);
         $crawler = $client->getCrawler();
         $this->assertTrue(
             $crawler->filter('.game-over-message, .win-message')->count() > 0,

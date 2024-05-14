@@ -11,7 +11,6 @@ class CardGameControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request('GET', '/card');
-        $client->catchExceptions(false);
         $this->assertResponseIsSuccessful();
     }
 
@@ -19,7 +18,6 @@ class CardGameControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request('GET', '/card/deck');
-        $client->catchExceptions(false);
         $this->assertResponseIsSuccessful();
     }
 
@@ -27,7 +25,6 @@ class CardGameControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request('GET', '/card/deck/shuffle');
-        $client->catchExceptions(false);
         $this->assertResponseIsSuccessful();
     }
 
@@ -35,7 +32,6 @@ class CardGameControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request('GET', '/card/deck/draw');
-        $client->catchExceptions(false);
         $this->assertResponseRedirects('/card/deck/draw/1');
         $client->followRedirect();
         $this->assertResponseIsSuccessful();
@@ -45,14 +41,12 @@ class CardGameControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request('GET', '/card/deck/draw/5');
-        $client->catchExceptions(false);
         $this->assertResponseIsSuccessful();
     }
 
     public function testMapSuitWithInvalidSuit(): void
     {
         $client = static::createClient();
-        $client->catchExceptions(false);
         $container = static::getContainer();
         $controller = new \App\Controller\CardGameController();
         $reflection = new \ReflectionClass($controller);
@@ -65,7 +59,6 @@ class CardGameControllerTest extends WebTestCase
     public function testMapSuitDefaultCase(): void
     {
         $client = static::createClient();
-        $client->catchExceptions(false);
         $controller = new \App\Controller\CardGameController();
         $reflection = new \ReflectionClass($controller);
         $method = $reflection->getMethod('mapSuit');

@@ -10,7 +10,6 @@ class SessionDebugControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request('GET', '/session');
-        $client->catchExceptions(false);
         $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'Session Debug');
         $this->assertSelectorExists('pre');
@@ -20,7 +19,6 @@ class SessionDebugControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request('GET', '/session');
-        $client->catchExceptions(false);
         $session = $client->getRequest()->getSession();
         $session->set('test', 'value');
         $this->assertTrue($session->has('test'), 'Session should have test data before deletion');
