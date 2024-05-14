@@ -9,48 +9,48 @@ class GameControllerTest extends WebTestCase
     public function testIndex(): void
     {
         $client = static::createClient();
-        $client->request('GET', '/game');
         $client->catchExceptions(false);
+        $client->request('GET', '/game');
         $this->assertResponseIsSuccessful();
     }
 
     public function testStartGame(): void
     {
         $client = static::createClient();
-        $client->request('GET', '/game/start');
         $client->catchExceptions(false);
+        $client->request('GET', '/game/start');
         $this->assertResponseIsSuccessful();
     }
 
     public function testDrawCard(): void
     {
         $client = static::createClient();
-        $client->request('POST', '/game/draw');
         $client->catchExceptions(false);
+        $client->request('POST', '/game/draw');
         $this->assertResponseIsSuccessful();
     }
 
     public function testDocumentation(): void
     {
         $client = static::createClient();
-        $client->request('GET', '/game/doc');
         $client->catchExceptions(false);
+        $client->request('GET', '/game/doc');
         $this->assertResponseIsSuccessful();
     }
 
     public function testStandGame(): void
     {
         $client = static::createClient();
-        $client->request('POST', '/game/stand');
         $client->catchExceptions(false);
+        $client->request('POST', '/game/stand');
         $this->assertResponseIsSuccessful();
     }
 
     public function testGetGameState(): void
     {
         $client = static::createClient();
-        $client->request('GET', '/api/game');
         $client->catchExceptions(false);
+        $client->request('GET', '/api/game');
         $this->assertResponseIsSuccessful();
         $this->assertResponseHeaderSame('Content-Type', 'application/json');
     }
@@ -58,8 +58,8 @@ class GameControllerTest extends WebTestCase
     public function testDrawCardGameOver(): void
     {
         $client = static::createClient();
-        $client->request('GET', '/game/start');
         $client->catchExceptions(false);
+        $client->request('GET', '/game/start');
         for ($i = 0; $i < 10; $i++) {
             $client->request('POST', '/game/draw');
         }
@@ -72,11 +72,11 @@ class GameControllerTest extends WebTestCase
     public function testStandGameBankWins(): void
     {
         $client = static::createClient();
+        $client->catchExceptions(false);
         $client->request('GET', '/game/start');
         $client->request('POST', '/game/draw');
         $client->request('POST', '/game/draw');
         $client->request('POST', '/game/stand');
-        $client->catchExceptions(false);
         $crawler = $client->getCrawler();
 
         $gameOverText = $crawler->filter('.game-over-message')->text();
@@ -86,11 +86,11 @@ class GameControllerTest extends WebTestCase
     public function testGetGameStateWithAllConditions(): void
     {
         $client = static::createClient();
+        $client->catchExceptions(false);
         $client->request('GET', '/game/start');
         $client->request('POST', '/game/draw');
         $client->request('POST', '/game/draw');
         $client->request('POST', '/game/draw');
-        $client->catchExceptions(false);
         $response = $client->request('GET', '/api/game');
         $content = $client->getResponse()->getContent();
 
@@ -111,11 +111,11 @@ class GameControllerTest extends WebTestCase
     public function testPlayerWinsByBank(): void
     {
         $client = static::createClient();
+        $client->catchExceptions(false);
         $client->request('GET', '/game/start');
         $client->request('POST', '/game/draw');
         $client->request('POST', '/game/draw');
         $client->request('POST', '/game/stand');
-        $client->catchExceptions(false);
         $crawler = $client->getCrawler();
         $this->assertTrue(
             $crawler->filter('.game-over-message, .win-message')->count() > 0,

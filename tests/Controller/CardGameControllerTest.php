@@ -10,8 +10,8 @@ class CardGameControllerTest extends WebTestCase
     public function testIndex(): void
     {
         $client = static::createClient();
-        $client->request('GET', '/card');
         $client->catchExceptions(false);
+        $client->request('GET', '/card');
         $this->assertResponseIsSuccessful();
     }
 
