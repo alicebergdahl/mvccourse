@@ -49,7 +49,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2024-05-14 13:28:16        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2024-05-14 13:25:23        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
@@ -93,7 +93,7 @@
                             <path d="M0 0h24v24H0z" fill="none">
                             <path d="M20 8h-2.81c-.45-.78-1.07-1.45-1.82-1.96L17 4.41 15.59 3l-2.17 2.17C12.96 5.06 12.49 5 12 5c-.49 0-.96.06-1.41.17L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20V8zm-6 8h-4v-2h4v2zm0-4h-4v-2h4v2z">
                         </svg>
-                        Violations (4)
+                        Violations (0)
                     </a>
                 </li>
                                     <li>
@@ -194,6 +194,12 @@
                         Package relations
                     </a>
                 </li>
+                                <li>
+                    <a href="git.html">
+                        <img src="images/logo-git.png" alt="">
+                        Git
+                    </a>
+                </li>
                                 <!--<li>
                     <a href="all.html">
                         <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24"
@@ -254,214 +260,7 @@
 <script>
 
 
-    var relations = [
-    {
-        "name": "\\App\\Repository\\ProductRepository",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\Doctrine\\Bundle\\DoctrineBundle\\Repository\\ServiceEntityRepository",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\Doctrine\\Persistence\\ManagerRegistry",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Repository\\BookRepository",
-        "size": 3000,
-        "relations": [
-            "\\Doctrine\\Bundle\\DoctrineBundle\\Repository\\ServiceEntityRepository",
-            "\\Doctrine\\Persistence\\ManagerRegistry"
-        ]
-    },
-    {
-        "name": "\\App\\Form\\BookType",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Component\\Form\\AbstractType",
-            "\\Symfony\\Component\\Form\\FormBuilderInterface",
-            "\\Symfony\\Component\\OptionsResolver\\OptionsResolver"
-        ]
-    },
-    {
-        "name": "\\Symfony\\Component\\Form\\AbstractType",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\Symfony\\Component\\Form\\FormBuilderInterface",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\Symfony\\Component\\OptionsResolver\\OptionsResolver",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Card\\Card",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Card\\DeckOfCards",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Card\\CardHand",
-        "size": 3000,
-        "relations": [
-            "\\App\\Card\\Card"
-        ]
-    },
-    {
-        "name": "\\App\\Entity\\Book",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Entity\\Product",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Controller\\CardGameController",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
-            "\\Symfony\\Component\\HttpFoundation\\Response",
-            "\\App\\Card\\DeckOfCards",
-            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface"
-        ]
-    },
-    {
-        "name": "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\Symfony\\Component\\HttpFoundation\\Response",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Controller\\MetricController",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
-            "\\Symfony\\Component\\HttpFoundation\\Response"
-        ]
-    },
-    {
-        "name": "\\App\\Controller\\SessionDebugController",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
-            "\\Symfony\\Component\\HttpFoundation\\Response",
-            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
-            "\\Symfony\\Component\\HttpFoundation\\Request"
-        ]
-    },
-    {
-        "name": "\\Symfony\\Component\\HttpFoundation\\Request",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Controller\\GameController",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
-            "\\Symfony\\Component\\HttpFoundation\\Response",
-            "\\Symfony\\Component\\HttpFoundation\\Request",
-            "\\App\\Card\\DeckOfCards",
-            "\\Symfony\\Component\\HttpFoundation\\JsonResponse"
-        ]
-    },
-    {
-        "name": "\\Symfony\\Component\\HttpFoundation\\JsonResponse",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Controller\\LuckyControllerJson",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
-            "\\Symfony\\Component\\HttpFoundation\\Response",
-            "\\Symfony\\Component\\HttpFoundation\\JsonResponse",
-            "\\Doctrine\\Persistence\\ManagerRegistry"
-        ]
-    },
-    {
-        "name": "\\App\\Controller\\LuckyControllerTwig",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
-            "\\Symfony\\Component\\HttpFoundation\\Response",
-            "\\Symfony\\Component\\HttpFoundation\\Request"
-        ]
-    },
-    {
-        "name": "\\App\\Controller\\ProductController",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
-            "\\Symfony\\Component\\HttpFoundation\\Response",
-            "\\Doctrine\\Persistence\\ManagerRegistry",
-            "\\App\\Entity\\Product",
-            "\\App\\Repository\\ProductRepository"
-        ]
-    },
-    {
-        "name": "\\App\\Controller\\CardControllerJson",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
-            "\\Symfony\\Component\\HttpFoundation\\JsonResponse",
-            "\\App\\Card\\DeckOfCards",
-            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface"
-        ]
-    },
-    {
-        "name": "\\App\\Controller\\LibraryController",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
-            "\\Symfony\\Component\\HttpFoundation\\Response",
-            "\\Doctrine\\ORM\\EntityManagerInterface",
-            "\\App\\Entity\\Book",
-            "\\Symfony\\Component\\HttpFoundation\\Request"
-        ]
-    },
-    {
-        "name": "\\Doctrine\\ORM\\EntityManagerInterface",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Kernel",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Component\\HttpKernel\\Kernel"
-        ]
-    },
-    {
-        "name": "\\Symfony\\Component\\HttpKernel\\Kernel",
-        "size": 3000,
-        "relations": []
-    }
-];
+    var relations = [];
 
     /**
      * Thanks to http://bl.ocks.org/mbostock/raw/7607999/
