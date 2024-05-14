@@ -36,3 +36,6 @@ yarn-error.log
 /tools/**/vendor/
 /tools/**/composer.lock
 .php-cs-fixer.cache
+
+# Ignore composer lock file
+composer.lock
