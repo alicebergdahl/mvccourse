@@ -21,6 +21,7 @@
         "symfony/doctrine-messenger": "7.0.*",
         "symfony/dotenv": "7.0.*",
         "symfony/expression-language": "7.0.*",
+        "symfony/flex": "^2",
         "symfony/form": "7.0.*",
         "symfony/framework-bundle": "7.0.*",
         "symfony/http-client": "7.0.*",
@@ -79,13 +80,7 @@
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
-            "importmap:install": "symfony-cmd",
-            "csfix": [
-                "php -d memory_limit=-1 tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src"
-            ],
-            "csfix:dry": [
-                "php -d memory_limit=-1 tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src --dry-run -v"
-            ]
+            "importmap:install": "symfony-cmd"
         },
         "phpdoc": "tools/phpdoc/phpdoc --config=tools/phpdoc/phpdoc.xml",
         "phpunit": "XDEBUG_MODE=coverage vendor/bin/phpunit",
