@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mätningar och Analys av Kodkvalitet{% endblock %}
+
+{% block body %}
+
+<div class="content">
+    <div class="row">
+        <h1>Mätningar och Analys av Kodkvalitet</h1>
+    </div>
+    <div class="row">
+        <div class="column">
+            <h2>Introduktion</h2>
+            <p>
+                För att förstå vad som gör min kod bra, måste vi titta på flera faktorer. De sex C:na för kodkvalitet är:
+            </p>
+            <ul>
+                <li><strong>Codestyle (Kodstil):</strong> Handlar om hur koden skrivs och om den följer etablerade kodningsstandarder och konventioner.</li>
+                <li><strong>Coverage (Täckning):</strong> Mäter i vilken utsträckning koden täcks av automatiserade tester.</li>
+                <li><strong>Complexity (Komplexitet):</strong> Mäter hur komplicerad koden är. Låg komplexitet gör koden enklare att förstå och underhålla.</li>
+                <li><strong>Cohesion (Sammanhållning):</strong> Avser hur väl relaterade och fokuserade ansvarsområdena för en modul eller klass är.</li>
+                <li><strong>Coupling (Koppling):</strong> Mäter graden av beroende mellan olika delar av koden. Låg koppling är önskvärt för att minska risken för oväntade bieffekter.</li>
+                <li><strong>CRAP (Ändringsrisk och Antimönster):</strong> Identifierar delar av koden som är riskabla att ändra och innehåller eventuella antimönster som bör undvikas.</li>
+            </ul>
+            <p>
+                Genom att analysera dessa aspekter av min kod kan jag förbättra dess övergripande kvalitet och öka dess underhållbarhet över tid.
+            </p>
+
+            <h2>Phpmetrics Analys</h2>
+            <p>
+                Efter att ha analyserat Phpmetrics-rapporten för min kod har jag identifierat flera områden som kan förbättras:
+            </p>
+            <ol>
+                <li>
+                    <strong>App\Controller\ProductController:</strong> Phpmetrics indikerar att det finns ett potentiellt problem med blob- eller gudobjektsmönstret i denna controller. Den har många offentliga metoder och brist på sammanhållning (LCOM=4), vilket kan leda till underhållsproblem och svårigheter att förstå koden. Att överväga att bryta ner denna klass i mindre, mer sammanhängande enheter kan vara fördelaktigt.
+                </li>
+                <p>
+                    <img src="{{ asset('img/phpmetrics1.png') }}" width="500" />
+                </p>
+                <li>
+                    <strong>App\Controller\GameController:</strong> Phpmetrics varnar för att det troligen finns buggar i denna controller. Det är viktigt att noggrant granska och åtgärda dessa buggar för att förbättra kodens tillförlitlighet och funktionalitet. Dessutom har den en hög komplexitet och 17 klassviolationer enligt Phpmetrics. Att identifiera och åtgärda dessa överträdelser kan förbättra kodens läsbarhet och underhållbarhet över tid.
+                </li>
+                <p>
+                    <img src="{{ asset('img/phpmetrics2.png') }}" width="500" />
+                </p>
+                <li>
+                    <strong>App\Controller\LibraryController:</strong> Phpmetrics rapporterar inga specifika problem med "librarycontroller". Det kan vara värt att granska den ytterligare för att säkerställa att det inte finns några dolda flaskhalsar eller svaga punkter i koden.
+                </li>
+                <p>
+                    <img src="{{ asset('img/phpmetrics3.png') }}" width="500" />
+                </p>
+            </ol>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
