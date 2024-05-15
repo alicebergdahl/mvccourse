@@ -23,27 +23,6 @@ class LibraryController extends AbstractController
         ]);
     }
 
-    #[Route('/library/seed', name: 'seed_books')]
-    public function seedBooks(EntityManagerInterface $entityManager): Response
-    {
-        $bookData = [
-            ['name' => 'Alice', 'author' => 'Alice Bergdahl', 'ISBN' => 9780141036144, 'image' => 'alice.png'],
-        ];
-
-        foreach ($bookData as $data) {
-            $book = new Book();
-            $book->setName($data['name']);
-            $book->setAuthor($data['author']);
-            $book->setISBN($data['ISBN']);
-            $book->setImage($data['image']);
-            $entityManager->persist($book);
-        }
-
-        $entityManager->flush();
-
-        return new Response("Books have been added to the library!");
-    }
-
     #[Route('/library/add', name: 'add_book')]
     public function addBook(Request $request, EntityManagerInterface $entityManager): Response
     {
