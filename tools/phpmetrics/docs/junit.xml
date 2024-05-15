@@ -1,0 +1,3 @@
+    <logging>
+        <junit outputFile="docs/junit.xml" />
+    </logging>
