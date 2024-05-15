@@ -2,53 +2,42 @@
 
 namespace App\Entity;
 
+use App\Repository\BookRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass="App\Repository\BookRepository")
- */
+#[ORM\Entity(repositoryClass: BookRepository::class)]
 class Book
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $title;
+    #[ORM\Column(length: 255)]
+    private ?string $name = null;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $author;
+    #[ORM\Column(length: 255)]
+    private ?string $author = null;
 
-    /**
-     * @ORM\Column(type="string", length=13, nullable=true)
-     */
-    private $isbn;
+    #[ORM\Column]
+    private ?int $ISBN = null;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $imagePath;
+    #[ORM\Column(length: 255)]
+    private ?string $image = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getTitle(): ?string
+    public function getName(): ?string
     {
-        return $this->title;
+        return $this->name;
     }
 
-    public function setTitle(string $title): self
+    public function setName(string $name): self
     {
-        $this->title = $title;
+        $this->name = $name;
         return $this;
     }
 
@@ -63,25 +52,25 @@ class Book
         return $this;
     }
 
-    public function getIsbn(): ?string
+    public function getISBN(): ?int
     {
-        return $this->isbn;
+        return $this->ISBN;
     }
 
-    public function setIsbn(?string $isbn): self
+    public function setISBN(int $ISBN): self
     {
-        $this->isbn = $isbn;
+        $this->ISBN = $ISBN;
         return $this;
     }
 
-    public function getImagePath(): ?string
+    public function getImage(): ?string
     {
-        return $this->imagePath;
+        return $this->image;
     }
 
-    public function setImagePath(?string $imagePath): self
+    public function setImage(string $image): self
     {
-        $this->imagePath = $imagePath;
+        $this->image = $image;
         return $this;
     }
 }

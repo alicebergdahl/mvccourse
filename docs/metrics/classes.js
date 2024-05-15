@@ -390,12 +390,12 @@ var classes = [
                 "_type": "Hal\\Metric\\FunctionMetric"
             },
             {
-                "name": "getTitle",
+                "name": "getName",
                 "role": "getter",
                 "_type": "Hal\\Metric\\FunctionMetric"
             },
             {
-                "name": "setTitle",
+                "name": "setName",
                 "role": "setter",
                 "_type": "Hal\\Metric\\FunctionMetric"
             },
@@ -410,22 +410,22 @@ var classes = [
                 "_type": "Hal\\Metric\\FunctionMetric"
             },
             {
-                "name": "getIsbn",
+                "name": "getISBN",
                 "role": "getter",
                 "_type": "Hal\\Metric\\FunctionMetric"
             },
             {
-                "name": "setIsbn",
+                "name": "setISBN",
                 "role": "setter",
                 "_type": "Hal\\Metric\\FunctionMetric"
             },
             {
-                "name": "getImagePath",
+                "name": "getImage",
                 "role": "getter",
                 "_type": "Hal\\Metric\\FunctionMetric"
             },
             {
-                "name": "setImagePath",
+                "name": "setImage",
                 "role": "setter",
                 "_type": "Hal\\Metric\\FunctionMetric"
             }
@@ -443,25 +443,25 @@ var classes = [
         "parents": [],
         "implements": [],
         "lcom": 0,
-        "length": 34,
-        "vocabulary": 7,
-        "volume": 95.45,
-        "difficulty": 4.2,
-        "effort": 400.89,
-        "level": 0.24,
-        "bugs": 0.03,
-        "time": 22,
-        "intelligentContent": 22.73,
+        "length": 37,
+        "vocabulary": 8,
+        "volume": 111,
+        "difficulty": 4,
+        "effort": 444,
+        "level": 0.25,
+        "bugs": 0.04,
+        "time": 25,
+        "intelligentContent": 27.75,
         "number_operators": 13,
-        "number_operands": 21,
+        "number_operands": 24,
         "number_operators_unique": 2,
-        "number_operands_unique": 5,
-        "cloc": 20,
-        "loc": 69,
+        "number_operands_unique": 6,
+        "cloc": 8,
+        "loc": 57,
         "lloc": 49,
-        "mi": 86.17,
-        "mIwoC": 49.13,
-        "commentWeight": 37.03,
+        "mi": 76.09,
+        "mIwoC": 48.67,
+        "commentWeight": 27.42,
         "kanDefect": 0.15,
         "relativeStructuralComplexity": 0,
         "relativeDataComplexity": 9.44,
