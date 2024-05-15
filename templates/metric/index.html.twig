@@ -27,28 +27,70 @@
             </p>
 
             <h2>Phpmetrics Analys</h2>
+            <img src="{{ asset('img/phpmetrics.png') }}" width="500" />
             <p>
                 Efter att ha analyserat Phpmetrics-rapporten för min kod har jag identifierat flera områden som kan förbättras:
             </p>
             <ol>
                 <li>
-                    <strong>App\Controller\ProductController:</strong> Phpmetrics indikerar att det finns ett potentiellt problem med blob- eller gudobjektsmönstret i denna controller. Den har många offentliga metoder och brist på sammanhållning (LCOM=4), vilket kan leda till underhållsproblem och svårigheter att förstå koden. Att överväga att bryta ner denna klass i mindre, mer sammanhängande enheter kan vara fördelaktigt.
+                    <strong>App\Controller\ProductController:</strong> Phpmetrics indikerar att det finns ett potentiellt problem med blob- eller gudobjektsmönstret i denna controller. Den har många offentliga metoder och brist på sammanhållning (LCOM=4), vilket kan leda till underhållsproblem och svårigheter att förstå koden. Att överväga att bryta ner denna klass i mindre, mer sammanhängande enheter kan vara fördelaktigt. Dessutom har den en relativ systemkomplexitet på 200, vilket indikerar en hög grad av komplexitet och därmed en utmaning för underhåll och förståelse, en aspekt relaterad till "Complexity".
                 </li>
                 <p>
                     <img src="{{ asset('img/phpmetrics1.png') }}" width="500" />
                 </p>
                 <li>
-                    <strong>App\Controller\GameController:</strong> Phpmetrics varnar för att det troligen finns buggar i denna controller. Det är viktigt att noggrant granska och åtgärda dessa buggar för att förbättra kodens tillförlitlighet och funktionalitet. Dessutom har den en hög komplexitet och 17 klassviolationer enligt Phpmetrics. Att identifiera och åtgärda dessa överträdelser kan förbättra kodens läsbarhet och underhållbarhet över tid.
+                    <strong>App\Controller\GameController:</strong> Phpmetrics varnar för att det troligen finns buggar i denna controller. Det är viktigt att noggrant granska och åtgärda dessa buggar för att förbättra kodens tillförlitlighet och funktionalitet. Dessutom har den en hög komplexitet och 17 klassviolationer enligt Phpmetrics. Att identifiera och åtgärda dessa överträdelser kan förbättra kodens läsbarhet och underhållbarhet över tid, vilket relaterar till "Complexity" och "Codestyle". Dessutom har den en relativ systemkomplexitet på 250, en annan indikator på komplexitet.
                 </li>
                 <p>
                     <img src="{{ asset('img/phpmetrics2.png') }}" width="500" />
                 </p>
                 <li>
-                    <strong>App\Controller\LibraryController:</strong> Phpmetrics rapporterar att koden har en hög komplexitet (Relative System Complexity = 361.48), vilket kan göra den svår att förstå och underhålla. Det är viktigt att överväga att förenkla och strukturera om koden för att minska dess komplexitet och öka dess läsbarhet.
+                    <strong>App\Controller\LibraryController:</strong> Phpmetrics rapporterar att koden har en hög komplexitet (Relative System Complexity = 361.48), vilket kan göra den svår att förstå och underhålla. Det är viktigt att överväga att förenkla och strukturera om koden för att minska dess komplexitet och öka dess läsbarhet, en aspekt som berör "Complexity". Dessutom har den en kopplingsgrad på 0.8, vilket indikerar en hög beroendegrad mellan olika delar av koden och kan leda till oväntade bieffekter och svårigheter att ändra koden, en koppling till "Coupling".
                 </li>
                 <p>
                     <img src="{{ asset('img/phpmetrics3.png') }}" width="500" />
                 </p>
+            </ol>
+
+            <h2>Scrutinizer Analys</h2>
+                <a href="https://scrutinizer-ci.com/g/alicebergdahl/mvccourse/?branch=main">
+                    <img src="https://scrutinizer-ci.com/g/alicebergdahl/mvccourse/badges/quality-score.png?b=main" alt="Scrutinizer Code Quality"/>
+                </a>
+                <a href="https://scrutinizer-ci.com/g/alicebergdahl/mvccourse/?branch=main">
+                    <img src="https://scrutinizer-ci.com/g/alicebergdahl/mvccourse/badges/coverage.png?b=main" alt="Code Coverage"/>
+                </a>
+                <a href="https://scrutinizer-ci.com/g/alicebergdahl/mvccourse/build-status/main">
+                    <img src="https://scrutinizer-ci.com/g/alicebergdahl/mvccourse/badges/build.png?b=main" alt="Build Status"/>
+                </a>
+            </p>
+            <img src="{{ asset('img/scruti1.png') }}" width="500" />
+            <p>
+                Efter att ha granskat Scrutinizer-rapporten för min kod, ser jag att det finns allvarliga problem med kodtäckningen för controllers, repositories och form-klasser då jag glömde att skriva tester för kursmoment 5. Dålig testtäckning inom dessa områden är oroande eftersom det ökar risken för oidentifierade fel och buggar i produktion, vilket påverkar "Coverage". Jag behöver åtgärda detta genom att skriva fler tester som täcker alla väsentliga delar av koden.
+            </p>
+            <ol>
+                <li><strong>Controllers:</strong> Dålig kodtäckning för controllers innebär att vi inte testar tillräckligt många scenarier och flöden i vår applikation. Detta kan leda till att vi missar viktiga buggar och fel i vår affärslogik. Scrutinizer visar att kodtäckningen är endast 30% för controllers, vilket indikerar en brist på "Coverage". En låg kodtäckning ökar risken för missade fel och buggar och kan leda till kvalitetsproblem.
+                </li>
+                <li><strong>Repositories:</strong> Liksom controllers hanterar repositories viktiga delar av datainteraktionen i vår applikation. Dålig testtäckning här innebär en högre risk för felaktiga databasåtgärder och felaktig datahantering. Scrutinizer visar att kodtäckningen är endast 25% för repositories, vilket indikerar en brist på "Coverage". En låg kodtäckning ökar risken för fel i datahanteringen och kan påverka systemets tillförlitlighet.
+                </li>
+                <li><strong>Form-klasser:</strong> Form-klasser är ansvariga för att validera och bearbeta användardata. Om vi inte testar dessa tillräckligt kan det leda till att felaktiga eller ogiltiga data accepteras av applikationen, vilket kan äventyra säkerheten och integriteten för vår användarinformation. Scrutinizer visar att kodtäckningen är endast 20% för form-klasser, vilket indikerar en brist på "Coverage". En låg kodtäckning ökar risken för säkerhetsproblem och dataintegritetsproblem.
+                </li>
+            </ol>
+            <img src="{{ asset('img/scruti2.png') }}" width="500" />
+            
+            <h2>Förbättringar</h2>
+            <p>
+                För att förbättra kodkvaliteten och öka underhållbarheten över tid planerar jag att genomföra följande förbättringar:
+            </p>
+            <ol>
+                <li>
+                    <strong>Bättre kodtäckning:</strong> Jag kommer att skriva fler tester för att öka kodtäckningen, särskilt för controllers, repositories och form-klasser. Detta kommer att minska risken för oidentifierade fel och buggar i produktion och förbättra "Coverage"-mätvärdet i Scrutinizer.
+                </li>
+                <li>
+                    <strong>Minskad komplexitet:</strong> Jag planerar att refaktorisera kod som har hög komplexitet enligt Phpmetrics-rapporten, särskilt i ProductController. Genom att minska komplexiteten kommer koden att bli lättare att förstå och underhålla, vilket påverkar "Complexity"-mätvärdet.
+                </li>
+                <li>
+                    <strong>Högre kvalitetsindex:</strong> Jag kommer att fokusera på att förbättra kvalitetsindexet i Scrutinizer genom att åtgärda de identifierade problemen med kodtäckning och andra kvalitetsrelaterade frågor. Detta kommer att bidra till att höja nivån på kodens övergripande kvalitet och öka dess underhållbarhet.
+                </li>
             </ol>
         </div>
     </div>

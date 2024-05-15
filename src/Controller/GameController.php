@@ -5,12 +5,10 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 use App\Card\Card;
-use App\Card\CardHand;
 use App\Card\DeckOfCards;
 
 class GameController extends AbstractController
@@ -48,17 +46,7 @@ class GameController extends AbstractController
 
         $playerHand[] = $newCard;
 
-        $playerTotal = 0;
-        foreach ($playerHand as $card) {
-            $value = $card->getValue();
-            if ($value === 'A') {
-                $playerTotal += 1;
-            } elseif (in_array($value, ['K', 'Q', 'J'])) {
-                $playerTotal += 10;
-            } else {
-                $playerTotal += intval($value);
-            }
-        }
+        $playerTotal = $this->calculateHandValue($playerHand);
 
         $request->getSession()->set('playerHand', $playerHand);
 
@@ -84,67 +72,6 @@ class GameController extends AbstractController
     public function documentation(): Response
     {
         return $this->render('game/documentation.html.twig');
-    }
-
-    #[Route("/game/stand", name: "stand_game", methods: ["POST"])]
-    public function standGame(Request $request): Response
-    {
-        $playerHand = $request->getSession()->get('playerHand', []);
-
-        $deck = new DeckOfCards();
-        $deck->shuffle();
-
-        $bankHand = $request->getSession()->get('bankHand', []);
-
-        while ($this->calculateHandValue($bankHand) < 17) {
-            $newCard = $deck->deal(1)->getCards()[0];
-            $bankHand[] = $newCard;
-        }
-
-        $request->getSession()->set('bankHand', $bankHand);
-
-        $playerTotal = $this->calculateHandValue($playerHand);
-        $bankTotal = $this->calculateHandValue($bankHand);
-
-        if ($bankTotal > 21) {
-            return $this->render('game/play.html.twig', [
-                'playerHand' => $playerHand,
-                'bankHand' => $bankHand,
-                'playerTotal' => $playerTotal,
-                'bankTotal' => $bankTotal,
-                'gameOver' => true,
-                'winMessage' => 'Du vann!',
-            ]);
-        }
-
-        if ($playerTotal > $bankTotal) {
-            return $this->render('game/play.html.twig', [
-                'playerHand' => $playerHand,
-                'bankHand' => $bankHand,
-                'playerTotal' => $playerTotal,
-                'bankTotal' => $bankTotal,
-                'gameOver' => true,
-                'winMessage' => 'Du vann!',
-            ]);
-        } elseif ($playerTotal < $bankTotal) {
-            return $this->render('game/play.html.twig', [
-                'playerHand' => $playerHand,
-                'bankHand' => $bankHand,
-                'playerTotal' => $playerTotal,
-                'bankTotal' => $bankTotal,
-                'gameOver' => true,
-                'winMessage' => 'Game over',
-            ]);
-        } else {
-            return $this->render('game/play.html.twig', [
-                'playerHand' => $playerHand,
-                'bankHand' => $bankHand,
-                'playerTotal' => $playerTotal,
-                'bankTotal' => $bankTotal,
-                'gameOver' => true,
-                'winMessage' => 'Banken vann!',
-            ]);
-        }
     }
 
     /**
@@ -173,28 +100,19 @@ class GameController extends AbstractController
     public function getGameState(Request $request): JsonResponse
     {
         $playerHand = (array) $request->getSession()->get('playerHand', []);
-        $bankHand = (array) $request->getSession()->get('bankHand', []);
 
         $playerTotal = $this->calculateHandValue($playerHand);
-        $bankTotal = $this->calculateHandValue($bankHand);
 
-        $gameOver = $playerTotal > 21 || count($bankHand) >= 2;
+        $gameOver = $playerTotal > 21;
 
         if ($gameOver) {
-            if ($playerTotal > 21) {
-                $winMessage = 'Game over';
-            } elseif ($bankTotal > 21 || $playerTotal > $bankTotal) {
-                $winMessage = 'Du vann!';
-            } else {
-                $winMessage = 'Game over';
-            }
+            $winMessage = 'Game over';
         } else {
             $winMessage = null;
         }
 
         $data = [
             'player_total' => $playerTotal,
-            'bank_total' => $bankTotal,
             'game_over' => $gameOver,
             'win_message' => $winMessage
         ];

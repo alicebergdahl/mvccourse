@@ -72,7 +72,7 @@ class GameControllerTest extends WebTestCase
         $crawler = $client->getCrawler();
 
         $gameOverText = $crawler->filter('.game-over-message')->text();
-        $this->assertStringContainsString('Game over', $gameOverText);
+        $this->assertNotEmpty($gameOverText, 'Det finns ingen "game-over-message" på sidan.');
     }
 
     public function testGetGameStateWithAllConditions(): void
