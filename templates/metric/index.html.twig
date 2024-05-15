@@ -89,9 +89,31 @@
                     <strong>Minskad komplexitet:</strong> Jag planerar att refaktorisera kod som har hög komplexitet enligt Phpmetrics-rapporten, särskilt i ProductController. Genom att minska komplexiteten kommer koden att bli lättare att förstå och underhålla, vilket påverkar "Complexity"-mätvärdet.
                 </li>
                 <li>
-                    <strong>Färre violations:</strong> Jag kommer att fokusera på att sänka antalet violations enligt phpmetrics. Just nu har jag 4 stycken violations och målet är att få ner det till 0. Jag kommer kolla på lla violations enskilt för att se hur jag kan åtgärda problemen.
+                    <strong>Färre violations:</strong> Jag kommer att fokusera på att sänka antalet violations enligt phpmetrics. Just nu har jag 4 stycken violations och målet är att få ner det till 0. Jag kommer kolla på alla violations enskilt för att se hur jag kan åtgärda problemen.
                 </li>
             </ol>
+
+            <h2>Lösningar till problemen</h2>
+                <p>För att lösa problem 1, där jag upptäckte en låg kodtäckning, skrev jag nya enhetstester för flera viktiga komponenter i min applikation. Det inkluderade enhetstester för controllers, entiteten Book.php, formuläret BookType.php samt Repository/BookRepository.php. Genom att göra detta kunde jag öka min kodtäckning från 58% till 77%. Nedan visas bilder som illustrerar hur kodtäckningen förbättrades efter att nya enhetstester skrevs.</p>
+                <img src="{{ asset('img/problem1b.png') }}" alt="Kodtäckning före förbättringarna för problem 1" width="300" />
+                <img src="{{ asset('img/problem1a.png') }}" alt="Kodtäckning efter förbättringarna för problem 1" width="300" />
+
+                <p>För att lösa problem 2, där jag identifierade hög komplexitet och behovet av att reducera det, gjorde jag flera ändringar. Jag tog bort ProductController eftersom den inte längre behövdes, vilket minskade onödig komplexitet. Dessutom delade jag upp min GameController i två separata controllers: GameController och BankController. Detta minskade komplexiteten och gjorde varje fil mer fokuserad och lättare att underhålla. Nedan visas bilder som visar komplexiteten före och efter dessa förändringar.</p>
+                <img src="{{ asset('img/problem2b.png') }}" alt="Komplexitet före förbättringarna för problem 2" width="300" />
+                <img src="{{ asset('img/problem2a.png') }}" alt="Komplexitet efter förbättringarna för problem 2" width="300" />
+
+                <p>För att lösa problem 3, där jag hade ett antal violations som behövde åtgärdas, fortsatte jag att reducera antalet violations. Även om jag fortfarande har kvar 2 violations, lyckades jag halvera antalet violations från tidigare. Jag kommer fortsätta att arbeta på att eliminera de återstående violations. Nedan visas bilder som visar antalet violations före och efter mina åtgärder.</p>
+                <img src="{{ asset('img/problem3b.png') }}" alt="Antal violations före förbättringarna för problem 3" width="300" />
+                <img src="{{ asset('img/problem3a.png') }}" alt="Antal violations efter förbättringarna för problem 3" width="300" />
+
+            <h2>Diskussion</h2>
+                <p>Genom att identifiera och lösa specifika problem relaterade till kodkvalitet har jag aktivt arbetat med att förbättra min kod och följa principerna för "clean code". Att skriva nya enhetstester, reducera komplexitet och hantera violations är alla strategier för att öka kodkvaliteten och göra koden mer läsbar, underhållbar och tillförlitlig.</p>
+
+                <p>Det finns definitivt fördelar med att arbeta på detta sätt. Genom att fokusera på specifika problemområden kan man göra konkreta förbättringar och mäta framsteg över tid. Detta kan öka förtroendet för koden, minska risken för buggar och fel och göra det lättare att hantera och underhålla projektet.</p>
+
+                <p>Samtidigt finns det också nackdelar med denna metod. Det kan vara tidskrävande att identifiera och åtgärda alla problem, särskilt i större projekt. Dessutom kan fokusering på specifika problem leda till att andra delar av koden förbises eller att överdriven optimering sker, vilket kan leda till ökad komplexitet eller förlorad funktionalitet.</p>
+
+                <p>Det finns också andra sätt att jobba mot "clean code". Att följa etablerade kodningsstandarder och best practices, använda designmönster och principer som SOLID, samt att kontinuerligt granska och refaktorisera koden är alla viktiga strategier. Att ha en kultur av kodgranskning och kollegial feedback kan också vara mycket effektivt för att upprätthålla kodkvalitet och främja bästa praxis.</p>
         </div>
     </div>
 </div>

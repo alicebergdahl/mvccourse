@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
+use App\Card\Card;
 use App\Card\DeckOfCards;
 
 class BankController extends AbstractController
