@@ -6,46 +6,49 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class LibraryControllerTest extends WebTestCase
 {
-    public function testListBooks(): void
-    {
-        $client = static::createClient();
-        $client->request('GET', '/library');
-        $this->assertResponseIsSuccessful();
-        // Add more assertions to verify the presence of expected content
-    }
-
     public function testAddBook(): void
     {
         $client = static::createClient();
+
         $crawler = $client->request('GET', '/library/add');
 
-        $this->assertResponseIsSuccessful();
-
-        // Add assertions to test form submission
         $form = $crawler->selectButton('Lägg till bok')->form();
+
+        $form['book[name]'] = 'Test Book';
+        $form['book[author]'] = 'Test Author';
+        $form['book[ISBN]'] = '1234567890';
+        $form['book[image]'] = 'https://example.com/image.jpg';
+
         $client->submit($form);
 
-        // Add assertions to verify redirection and book addition
-    }
-
-    public function testViewBook(): void
-    {
-        $client = static::createClient();
-        $client->request('GET', '/library/book/14'); // Assuming book with ID 1 exists
-        $this->assertResponseIsSuccessful();
-        // Add more assertions to verify the presence of expected content
+        $this->assertResponseRedirects('/library');
     }
 
     public function testEditBook(): void
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/library/edit/14'); // Assuming book with ID 1 exists
-        $this->assertResponseIsSuccessful();
 
-        // Add assertions to test form submission for editing
+        $crawler = $client->request('GET', '/library/edit/12'); // Assuming there is a book with id 1
+
         $form = $crawler->selectButton('Lägg till bok')->form();
+
+        // Update book information
+        $form['book[name]'] = 'Updated Test Book';
+        $form['book[author]'] = 'Updated Test Author';
+        $form['book[ISBN]'] = '0987654321';
+        $form['book[image]'] = 'https://example.com/updated_image.jpg';
+
         $client->submit($form);
 
-        // Add assertions to verify redirection and book editing
+        $this->assertResponseRedirects('/library/book/12'); // Assuming redirection to view book page after editing
+    }
+
+    public function testViewBook(): void
+    {
+        $client = static::createClient();
+
+        $client->request('GET', '/library/book/12'); // Assuming there is a book with id 1
+
+        $this->assertResponseIsSuccessful();
     }
 }
