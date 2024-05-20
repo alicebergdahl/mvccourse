@@ -1,0 +1,10 @@
+{% extends 'proj/proj_base.html.twig' %}
+
+{% block title %}Om spelet{% endblock %}
+
+{% block body %}
+    <h1>Om spelet</h1>
+    <p>Information om spelet kommer här...</p>
+    <a href="{{ path('proj_about_database') }}" class="proj-btn">Databasinformation</a>
+    <a href="{{ path('proj_docs') }}" class="proj-btn">Dokumentation</a>
+{% endblock %}

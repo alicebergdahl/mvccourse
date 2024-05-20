@@ -1,0 +1,37 @@
+{% extends 'proj/proj_base.html.twig' %}
+
+{% block title %}Databasen för projektet{% endblock %}
+
+{% block body %}
+        <h1>Databasen för projektet</h1>
+
+        <h2>ER Diagram</h2>
+        <div style="background-color: #fff;">
+            <img src="{{ asset('img/proj_er.png') }}" width="100%" />
+        </div>
+
+        <h2>Beskrivning av tabeller</h2>
+        <ul>
+            <li><strong>Players</strong>: Sparar information om spelare inklusive deras ID och namn.</li>
+            <li><strong>Items</strong>: Sparar information om föremål inklusive deras ID, namn, mängd och vilket spelarnamn (ID) de tillhör.</li>
+        </ul>
+
+        <h2>Relationer mellan tabeller</h2>
+        <p>Relationerna mellan tabellerna hanteras genom användning av spelarnamn (som representerar spelarens ID) i Items-tabellen för att koppla föremål till spelare. En spelare kan ha max fem stycken föremål vilket gör att det blir en ett-till-fem relation mellan tabellerna.</p>
+
+        <h2>Val av databas</h2>
+        <p>För detta projekt använde jag SQLite. SQLite är lättviktig och idealisk för utveckling och små till medelstora applikationer. Det kräver ingen separat server och är enkel att konfigurera.</p>
+
+        <h2>Enhetstester</h2>
+        <p>Vi genomförde enhetstester mot databasen för att säkerställa att alla funktioner fungerar som de ska. Vi testade bland annat skapandet av spelare, tilldelning av föremål, och kontroll av åtkomst till rum.</p>
+        
+        <h2>Scrutinizer och enhetstester</h2>
+        <p>Enhetstester på Scrutinizer lyckades genom att konfigurera Scrutinizer att använda SQLite som databashanterare under testerna. Detta säkerställde att alla tester kunde köras i en kontrollerad miljö utan att behöva konfigurera en extern databas.</p>
+
+        <h2>Jämförelse mellan ORM och traditionella databasmetoder</h2>
+        <p>Att använda en ORM som Doctrine i Symfony har sina fördelar. ORMs gör det enklare att hantera databasoperationer direkt i koden, utan att behöva skriva SQL-frågor. Detta sparar tid och minskar risken för fel. </p>
+        <p>En nackdel är att ORMs kan skapa ineffektiva frågor som påverkar prestandan. Traditionella metoder ger mer kontroll över SQL-frågor och optimeringar, vilket kan förbättra prestandan i vissa fall.</p>
+        <p>En stor fördel med ORM är dess förmåga att hantera komplexa relationer och erbjuda databasagnostiska lösningar, vilket gör applikationen mer flexibel och enklare att migrera mellan olika databassystem.</p>
+        <p>Under databaskursen arbetade vi direkt med SQL, vilket gav en djupare förståelse för hur databaser fungerar. Båda metoderna har sina styrkor och svagheter. ORM är bra för snabb utveckling och underhåll, medan traditionell metod kan vara bättre för prestandakritiska applikationer. Valet beror på projektets behov och komplexitet.</p>
+
+{% endblock %}

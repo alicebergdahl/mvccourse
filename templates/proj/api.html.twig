@@ -1,0 +1,12 @@
+{% extends 'proj/proj_base.html.twig' %}
+
+{% block title %}API{% endblock %}
+
+{% block body %}
+    <h1>API routes för projektet:</h1>
+    <ul>
+        {% for name, route in routes %}
+            <li><a href="{{ route }}">{{ name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

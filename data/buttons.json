@@ -1,0 +1,10 @@
+[
+    {"roomnumber": 1, "direction": "east", "toroom": 2},
+    {"roomnumber": 2, "direction": "west", "toroom": 1},
+    {"roomnumber": 2, "direction": "east", "toroom": 3},
+    {"roomnumber": 2, "direction": "south", "toroom": 4},
+    {"roomnumber": 3, "direction": "west", "toroom": 2},
+    {"roomnumber": 4, "direction": "north", "toroom": 2},
+    {"roomnumber": 4, "direction": "east", "toroom": 5},
+    {"roomnumber": 5, "direction": "west", "toroom": 4}
+]

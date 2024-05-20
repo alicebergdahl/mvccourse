@@ -1,0 +1,15 @@
+{% extends 'proj/proj_base.html.twig' %}
+
+{% block title %}Välkommen!{% endblock %}
+
+{% block body %}
+    <h1>Välkommen till spelet</h1>
+    <p>Ange ditt namn nedan för att börja spelet:</p>
+    <form action="{{ path('proj_start_game') }}" method="post">
+        <div class="mb-3">
+            <label for="playerName" class="form-label">Namn</label>
+            <input type="text" class="form-control" id="playerName" name="playerName" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Starta spelet</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'proj/proj_base.html.twig' %}
+
+{% block title %}Rum {{ currentRoom }}{% endblock %}
+
+{% block body %}
+    <main class="proj-room main-{{ currentRoom }}">
+        <style>
+            .main-{{ currentRoom }} {
+                background-image: url('{{ asset('img/room' ~ currentRoom ~ 'background.png') }}');
+            }
+        </style>
+
+        <div class="button-container">
+
+            <form action="{{ path('proj_home') }}" method="get" class="exit-form">
+                <button type="submit" class="exit-btn">Börja om</button>
+            </form>
+
+
+            {% for button in buttons %}
+                {% if button.roomnumber == currentRoom %}
+                    <form action="{{ path('proj_game_room', {'room': button.toroom}) }}" method="get" class="btn-{{ button.direction }}">
+                        <button type="submit" class="click-btn">
+                            <img src="{{ asset('img/room' ~ button.toroom ~ 'door.png') }}" alt="Dörr till Rum {{ button.toroom }}" height="150"/>
+                        </button>
+                    </form>
+                {% endif %}
+            {% endfor %}
+
+            {% for item in items %}
+                {% if item.roomnumber == currentRoom %}
+                    {# Generera slumpmässiga kolumner och rader #}
+                    {% set randomColumn = random(1, 11) %}
+                    {% set randomRow = random(1, 7) %}
+                    <form method="post" action="{{ path('proj_collect_item', {'itemName': item.itemname}) }}" class="item-btn item-btn{{ loop.index }}" style="grid-column: {{ randomColumn }}; grid-row: {{ randomRow }};">
+                        <button type="submit" class="click-btn">
+                            <img src="{{ asset('img/' ~ item.itemname ~ '.png') }}" alt="{{ item.itemname }}" height="50" />
+                        </button>
+                    </form>
+                {% endif %}
+            {% endfor %}
+
+            {% if currentRoom == 5 %}
+                <form action="{{ path('proj_open_treasure') }}" method="post">
+                    <button type="submit" class="click-btn">Öppna skattkistan</button>
+                </form>
+            {% endif %}
+
+        </div>
+
+        <div class="player-info">
+            <p>Player ID: {{ currentPlayerId }}</p>
+            <p>Player Name: {{ playerName }}</p>
+        </div>
+
+        <div class="player-items">
+            <ul>
+                {% for playerItem in playerItems %}
+                    <form method="post" action="{{ path('proj_remove_item', {'itemName': playerItem.itemname}) }}" class="remove-item-form">
+                        <button type="submit" class="click-btn remove-item-btn">
+                            <img src="{{ asset('img/' ~ playerItem.itemname ~ '.png') }}" alt="{{ playerItem.itemname }}" height="50" />
+                        </button>
+                    </form>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </main>
+{% endblock %}

@@ -1,0 +1,9 @@
+[
+    {"itemname": "flashlight", "roomnumber": 1},
+    {"itemname": "fire", "roomnumber": 1},
+    {"itemname": "icepicker", "roomnumber": 2},
+    {"itemname": "money", "roomnumber": 2},
+    {"itemname": "passport", "roomnumber": 3},
+    {"itemname": "glasses", "roomnumber": 2},
+    {"itemname": "key", "roomnumber": 3}
+]

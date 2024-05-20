@@ -1,0 +1,113 @@
+{% extends 'proj/proj_base.html.twig' %}
+
+{% block title %}Dokumentation{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <h1>Spel Dokumentation</h1>
+    </div>
+
+    <div class="row">
+        <div class="column">
+            <h2>Regler och Instruktioner</h2>
+            <p>Följande är de grundläggande reglerna och instruktionerna för spelet:</p>
+            <ul>
+                <li>Rör dig genom olika rum och lösa pussel för att fortsätta framåt.</li>
+                <li>Samla föremål för att använda dem senare i spelet.</li>
+                <li>Använd din intelligens och strategi för att övervinna utmaningar.</li>
+                <li>Se upp för ledtrådar och ledtrådar för att hjälpa dig på din resa.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="column">
+            <h2>Flödesschema för kodimplementation</h2>
+            <p>Flödesschemat för kodimplementationen är som följer:</p>
+            <ol>
+                <li>Börja med att kontrollera om spelaren har åtkomst till det angivna rummet.</li>
+                <li>Kontrollera om spelaren har de nödvändiga föremålen för att få tillträde till rummet.</li>
+                <li>Om spelaren har tillträde till rummet, fortsätt att uppdatera den aktuella rummet och tillgängliga riktningar.</li>
+                <li>Om spelaren inte har tillträde till rummet, visa ett meddelande och stanna kvar i det nuvarande rummet.</li>
+                <li>Omdirigera spelaren till det nya rummet efter framgångsrik rörelse.</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="column">
+            <h2>Pseudokod</h2>
+            <p>Här nedan följer pseudokoden för spelets viktiga funktioner:</p>
+            <pre class="proj-pre">
+                // Pseudokod för att starta spelet
+                startGame():
+                    spelare anger sitt namn
+                    skapa en ny spelarinstans med det angivna namnet
+                    spara spelaren i databasen
+                    spara spelarens ID i sessionen
+                    omdirigera till det första rummet i spelet
+
+                // Pseudokod för att visa en viss sida i spelet
+                showPage(sida):
+                    om sidan är "välkommen":
+                        visa välkomstsida
+                    annars om sidan är "om":
+                        visa informationsida om spelet
+                    annars om sidan är "om-databas":
+                        visa information om spelets databasstruktur
+                    annars om sidan är "rum":
+                        visa det aktuella rummet där spelaren befinner sig
+                    annars:
+                        visa en felmeddelande-sida
+
+                // Pseudokod för att kontrollera tillgång till ett rum
+                checkRoomAccess(rum):
+                    om spelaren har tillgång till rummet:
+                        returnera sant
+                    annars:
+                        returnera falskt
+
+                // Pseudokod för att flytta spelaren till ett annat rum
+                moveTo(rum):
+                    om spelaren har tillgång till rummet:
+                        flytta spelaren till det angivna rummet
+                        uppdatera det aktuella rummet och tillgängliga riktningar
+                    annars:
+                        visa ett felmeddelande och stanna kvar i det nuvarande rummet
+
+                // Pseudokod för att samla ett föremål
+                collectItem(föremålsnamn):
+                    om spelaren kan samla föremålet:
+                        lägg till föremålet i spelarens inventarier
+                    omdirigera tillbaka till det aktuella rummet
+
+                // Pseudokod för att ta bort ett föremål från spelarens inventarier
+                removeItem(föremålsnamn):
+                    ta bort föremålet från spelarens inventarier
+                    omdirigera tillbaka till det aktuella rummet
+
+                // Pseudokod för att öppna en skatt
+                openTreasure():
+                    om spelaren har nyckeln:
+                        visa ett grattismeddelande
+                    annars:
+                        visa en varning
+                    omdirigera tillbaka till det aktuella rummet
+            </pre>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="column">
+            <h2>Klasser</h2>
+            <p>Här är en kort beskrivning av de viktigaste klasserna i spelet:</p>
+            <ul>
+                <li><strong>ProjController:</strong> Ansvarar för hantering av webbapplikationsrutter och presentation av vyer.</li>
+                <li><strong>GameService:</strong> Hanterar spelets logik för att röra sig mellan olika rum och hantera tillgängliga riktningar.</li>
+                <li><strong>ItemService:</strong> Hanterar spelares föremål, tillägg och borttagning av föremål från spelares inventarier.</li>
+                <li><strong>JsonDataService:</strong> Ansvarar för att läsa JSON-datafiler som innehåller föremål och knappinformation.</li>
+                <li><strong>AccessControlService:</strong> Hanterar åtkomstkontroll för olika rum baserat på spelarens föremål.</li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
