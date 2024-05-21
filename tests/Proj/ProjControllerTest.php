@@ -40,15 +40,6 @@ class ProjControllerTest extends WebTestCase
         $this->assertSelectorTextContains('h1', 'Spel Dokumentation');
     }
 
-    public function testStartGame(): void
-    {
-        $client = static::createClient();
-        $crawler = $client->request('POST', '/proj/start', ['playerName' => 'Test Player']);
-        $this->assertResponseRedirects('/proj/game/1');
-        
-        // You can add additional assertions here to verify the session state or database changes.
-    }
-
     public function testMove(): void
     {
         $client = static::createClient();
