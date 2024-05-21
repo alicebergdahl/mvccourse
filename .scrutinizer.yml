@@ -12,36 +12,18 @@ build:
             environment:
                 php:
                     version: 8.3.3
-            steps:
-                - checkout
-                - setup_environment
-                - setup_database
-                - run_tests
-
+                    # version: 8.1.13
+                    # version: 8.1.17
+                    # version: 8.2.4
+        analysis:
+            tests:
+                override:
+                    - php-scrutinizer-run
+                    #- phpcs-run # Not used, missing config file
     tests:
         override:
-            - command: "composer phpunit"
-              coverage:
-                  file: "docs/coverage.clover"
-                  format: "php-clover"
-
-steps:
-    setup_environment:
-        # Copy the .env.test configuration to .env
-        - command: cp .env.test .env
-          description: "Copy .env.test to .env"
-
-    setup_database:
-        # Create SQLite database and run migrations
-        - command: |
-            php bin/console doctrine:database:create --env=test
-            php bin/console doctrine:schema:update --force --env=test
-            php bin/console doctrine:fixtures:load --env=test --no-interaction
-          description: "Set up the SQLite database"
-
-    run_tests:
-        # Run PHPUnit tests
-        - command: |
-            composer install --prefer-dist --no-interaction
-            php bin/phpunit
-          description: "Run PHPUnit tests"
+            -   command: "composer phpunit"
+                # command: "XDEBUG_MODE=coverage vendor/bin/phpunit"
+                coverage:
+                    file: "docs/coverage.clover"
+                    format: "php-clover"
