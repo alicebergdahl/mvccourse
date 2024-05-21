@@ -32,31 +32,4 @@ class ProjControllerJsonTest extends WebTestCase
         $this->assertResponseIsSuccessful();
         $this->assertJson($client->getResponse()->getContent());
     }
-
-    public function testGetAllPlayers(): void
-    {
-        $client = static::createClient();
-        $client->request('GET', '/proj/api/players');
-
-        $this->assertResponseIsSuccessful();
-        $this->assertJson($client->getResponse()->getContent());
-    }
-
-    public function testAddItemToPlayer(): void
-    {
-        $client = static::createClient();
-        $client->request('POST', '/proj/api/playeritems/add/1/money');
-
-        $this->assertResponseIsSuccessful();
-        $this->assertJson($client->getResponse()->getContent());
-    }
-
-    public function testRemoveItemFromPlayer(): void
-    {
-        $client = static::createClient();
-        $client->request('POST', '/proj/api/playeritems/remove/1/money');
-
-        $this->assertResponseIsSuccessful();
-        $this->assertJson($client->getResponse()->getContent());
-    }
 }

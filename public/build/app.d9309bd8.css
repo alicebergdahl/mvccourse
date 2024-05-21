@@ -296,6 +296,7 @@ p {
     gap: 0px; /* Avstånd mellan knapparna */
     height: 70vh; /* Höjden på grid-container */
     background-color: rgba(0, 0, 0, 0); /* Transparent bakgrundsfärg */
+    width: 100%;
 }
 
 .button-container:hover {
