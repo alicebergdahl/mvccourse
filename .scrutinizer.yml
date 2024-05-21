@@ -12,21 +12,11 @@ build:
             environment:
                 php:
                     version: 8.3.3
-                databases:
-                    sqlite: true
-                cache:
-                    directories:
-                        - vendor
-                        - var/cache
             steps:
                 - checkout
+                - setup_environment
                 - setup_database
-                - composer install --prefer-dist --no-interaction
-                - cp .env.test .env
-                - php bin/console doctrine:database:create --env=test
-                - php bin/console doctrine:schema:update --force --env=test
-                - php bin/console doctrine:fixtures:load --env=test --no-interaction
-                - php bin/phpunit
+                - run_tests
 
     tests:
         override:
@@ -34,3 +24,24 @@ build:
               coverage:
                   file: "docs/coverage.clover"
                   format: "php-clover"
+
+steps:
+    setup_environment:
+        # Copy the .env.test configuration to .env
+        - command: cp .env.test .env
+          description: "Copy .env.test to .env"
+
+    setup_database:
+        # Create SQLite database and run migrations
+        - command: |
+            php bin/console doctrine:database:create --env=test
+            php bin/console doctrine:schema:update --force --env=test
+            php bin/console doctrine:fixtures:load --env=test --no-interaction
+          description: "Set up the SQLite database"
+
+    run_tests:
+        # Run PHPUnit tests
+        - command: |
+            composer install --prefer-dist --no-interaction
+            php bin/phpunit
+          description: "Run PHPUnit tests"
