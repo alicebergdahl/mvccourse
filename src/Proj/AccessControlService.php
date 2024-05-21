@@ -7,9 +7,9 @@ use App\Repository\ItemsRepository;
 
 class AccessControlService
 {
-    private ItemsRepository $itemsRepository;
+    private ?ItemsRepository $itemsRepository;
 
-    public function __construct(ItemsRepository $itemsRepository)
+    public function __construct(ItemsRepository $itemsRepository = null)
     {
         $this->itemsRepository = $itemsRepository;
     }

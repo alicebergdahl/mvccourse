@@ -13,7 +13,7 @@
         <div class="button-container">
 
             <form action="{{ path('proj_home') }}" method="get" class="exit-form">
-                <button type="submit" class="exit-btn">Börja om</button>
+                <button type="submit" class="exit-btn">Avsluta spel</button>
             </form>
 
 
@@ -41,8 +41,10 @@
             {% endfor %}
 
             {% if currentRoom == 5 %}
-                <form action="{{ path('proj_open_treasure') }}" method="post">
-                    <button type="submit" class="click-btn">Öppna skattkistan</button>
+                <form action="{{ path('proj_open_treasure') }}" class="treasure" method="post">
+                    <button type="submit" class="click-btn">
+                        <img src="{{ asset('img/treasure.png') }}" alt="Treasure" class="treasure-img">
+                    </button>
                 </form>
             {% endif %}
 

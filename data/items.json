@@ -1,9 +1,18 @@
 [
     {"itemname": "flashlight", "roomnumber": 1},
     {"itemname": "fire", "roomnumber": 1},
+    {"itemname": "apple", "roomnumber": 1},
+    {"itemname": "map", "roomnumber": 1},
+    {"itemname": "leaf", "roomnumber": 1},
     {"itemname": "icepicker", "roomnumber": 2},
     {"itemname": "money", "roomnumber": 2},
-    {"itemname": "passport", "roomnumber": 3},
     {"itemname": "glasses", "roomnumber": 2},
-    {"itemname": "key", "roomnumber": 3}
+    {"itemname": "helmet", "roomnumber": 2},
+    {"itemname": "stone", "roomnumber": 2},
+    {"itemname": "passport", "roomnumber": 3},
+    {"itemname": "key", "roomnumber": 3},
+    {"itemname": "penguin", "roomnumber": 3},
+    {"itemname": "shield", "roomnumber": 4},
+    {"itemname": "drink", "roomnumber": 4},
+    {"itemname": "food", "roomnumber": 4}
 ]

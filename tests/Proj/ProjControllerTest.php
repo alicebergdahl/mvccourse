@@ -3,6 +3,8 @@
 namespace App\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\HttpFoundation\Response;
+
 
 class ProjControllerTest extends WebTestCase
 {
@@ -55,6 +57,4 @@ class ProjControllerTest extends WebTestCase
         
         // You can add additional assertions here to verify the updated game state.
     }
-
-    // Add more tests for other controller methods as needed
 }

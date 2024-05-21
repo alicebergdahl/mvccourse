@@ -331,6 +331,15 @@ p {
     background-color: #45a049; /* Mörkare grön bakgrundsfärg när musen hovrar över knappen */
 }
 
+.treasure-img {
+    height: 50px;
+}
+
+.treasure {
+    grid-column: 8; /* Placera knappen för norr i den tredje kolumnen */
+    grid-row: 7;
+}
+
 .exit-form  {
     grid-column: 11; /* Placera knappen för norr i den tredje kolumnen */
     grid-row: 1; /* Placera knappen för norr i första raden */
