@@ -12,18 +12,25 @@ build:
             environment:
                 php:
                     version: 8.3.3
-                    # version: 8.1.13
-                    # version: 8.1.17
-                    # version: 8.2.4
-        analysis:
-            tests:
-                override:
-                    - php-scrutinizer-run
-                    #- phpcs-run # Not used, missing config file
+                databases:
+                    sqlite: true
+                cache:
+                    directories:
+                        - vendor
+                        - var/cache
+            steps:
+                - checkout
+                - setup_database
+                - composer install --prefer-dist --no-interaction
+                - cp .env.test .env
+                - php bin/console doctrine:database:create --env=test
+                - php bin/console doctrine:schema:update --force --env=test
+                - php bin/console doctrine:fixtures:load --env=test --no-interaction
+                - php bin/phpunit
+
     tests:
         override:
-            -   command: "composer phpunit"
-                # command: "XDEBUG_MODE=coverage vendor/bin/phpunit"
-                coverage:
-                    file: "docs/coverage.clover"
-                    format: "php-clover"
+            - command: "composer phpunit"
+              coverage:
+                  file: "docs/coverage.clover"
+                  format: "php-clover"

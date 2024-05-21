@@ -1,6 +1,8 @@
 <?php
 
+
 namespace App\Controller;
+
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -10,6 +12,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Book;
 use App\Form\BookType;
 
+
 class LibraryController extends AbstractController
 {
     #[Route('/library', name: 'library_home')]
@@ -18,10 +21,12 @@ class LibraryController extends AbstractController
         $bookRepository = $entityManager->getRepository(Book::class);
         $books = $bookRepository->findAll();
 
+
         return $this->render('library/list.html.twig', [
             'books' => $books
         ]);
     }
+
 
     #[Route('/library/add', name: 'add_book')]
     public function addBook(Request $request, EntityManagerInterface $entityManager): Response
@@ -29,61 +34,75 @@ class LibraryController extends AbstractController
         $book = new Book();
         $form = $this->createForm(BookType::class, $book);
 
+
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($book);
             $entityManager->flush();
 
+
             return $this->redirectToRoute('library_home');
         }
+
 
         return $this->render('library/add.html.twig', [
             'form' => $form->createView(),
         ]);
     }
 
+
     #[Route('/library/book/{id}', name: 'view_book', methods: ['GET'])]
     public function viewBook(Book $book): Response
     {
+
 
         return $this->render('library/view.html.twig', [
             'book' => $book,
         ]);
     }
 
+
     #[Route('/library/edit/{id}', name: 'edit_book')]
     public function editBook(Request $request, EntityManagerInterface $entityManager, int $id): Response
     {
         $book = $entityManager->getRepository(Book::class)->find($id);
 
+
         if (!$book) {
             throw $this->createNotFoundException('No book found for id '.$id);
         }
 
+
         $form = $this->createForm(BookType::class, $book);
         $form->handleRequest($request);
+
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
             return $this->redirectToRoute('view_book', ['id' => $book->getId()]);
         }
 
+
         return $this->render('library/edit.html.twig', [
             'form' => $form->createView()
         ]);
     }
+
 
     #[Route('/library/delete/{id}', name: 'delete_book')]
     public function deleteBook(EntityManagerInterface $entityManager, int $id): Response
     {
         $book = $entityManager->getRepository(Book::class)->find($id);
 
+
         if (!$book) {
             throw $this->createNotFoundException('No book found for id ' . $id);
         }
 
+
         $entityManager->remove($book);
         $entityManager->flush();
+
 
         return $this->redirectToRoute('library_home');
     }
