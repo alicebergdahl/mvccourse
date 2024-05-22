@@ -13,7 +13,7 @@ class ProjControllerTest extends WebTestCase
         $client = static::createClient();
         $client->request('GET', '/proj');
         $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('h1', 'Välkommen till spelet');
+        $this->assertSelectorTextContains('h1', 'Äventyrsspelet');
     }
 
     public function testAbout(): void
@@ -21,7 +21,7 @@ class ProjControllerTest extends WebTestCase
         $client = static::createClient();
         $client->request('GET', '/proj/about');
         $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('h1', 'Om spelet');
+        $this->assertSelectorTextContains('h1', 'Om äventyrsspelet');
     }
 
     public function testAboutDatabase(): void
@@ -45,7 +45,5 @@ class ProjControllerTest extends WebTestCase
         $client = static::createClient();
         $client->request('GET', '/proj/move/north');
         $this->assertResponseRedirects('/proj/game/1');
-        
-        // You can add additional assertions here to verify the updated game state.
     }
 }

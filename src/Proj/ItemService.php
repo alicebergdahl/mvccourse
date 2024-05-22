@@ -41,7 +41,7 @@ class ItemService
             ->findBy(['playername' => (string) $playerId]);
 
         if (count($currentItems) >= 5) {
-            return "Packback full";
+            return "Backpack full";
         }
 
         $item = new Items();
@@ -52,7 +52,7 @@ class ItemService
         $this->entityManager->persist($item);
         $this->entityManager->flush();
     
-        return "Item added.";
+        return "Item added";
     }
 
     /**
