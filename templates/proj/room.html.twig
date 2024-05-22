@@ -10,13 +10,6 @@
             }
         </style>
 
-        <div class="button-container">
-
-            <form action="{{ path('proj_home') }}" method="get" class="exit-form">
-                <button type="submit" class="exit-btn">Avsluta spel</button>
-            </form>
-
-
             {% for button in buttons %}
                 {% if button.roomnumber == currentRoom %}
                     <form action="{{ path('proj_game_room', {'room': button.toroom}) }}" method="get" class="btn-{{ button.direction }}">
@@ -26,6 +19,12 @@
                     </form>
                 {% endif %}
             {% endfor %}
+
+        <div class="button-container">
+
+            <form action="{{ path('proj_home') }}" method="get" class="exit-form">
+                <button type="submit" class="exit-btn">Avsluta spel</button>
+            </form>
 
             {% for item in items %}
                 {% if item.roomnumber == currentRoom %}
@@ -48,11 +47,6 @@
                 </form>
             {% endif %}
 
-        </div>
-
-        <div class="player-info">
-            <p>Player ID: {{ currentPlayerId }}</p>
-            <p>Player Name: {{ playerName }}</p>
         </div>
 
         <div class="player-items">

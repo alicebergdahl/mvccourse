@@ -4,7 +4,7 @@
 
 ## Beskrivning
 
-Detta repo innehåller koden för en webbplats utvecklad som en del av en kurs om MVC-tekniker. Webbplatsen innehåller olika sidor, inklusive en "Om" sida, en "Hem" sida och en sida som genererar ett slumpmässigt "magiskt nummer".
+Detta repo innehåller koden för en webbplats utvecklad som en del av en kurs om MVC-tekniker. Webbplatsen innehåller olika sidor, "Hem", "Om", "Redovisning", "Random", "Kortspel", "21", "API", "Bibliotek", "Dokumentation", "Metric" samt ett större projekt (äventyrsspelet).
 
 ## Installation
 
@@ -20,6 +20,6 @@ För att köra projektet lokalt, följ dessa steg:
 
 ## Badges
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/alicebergdahl/mvccourse/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/alicebergdahl/mvccourse/?branch=main)
-[![Code Coverage](https://scrutinizer-ci.com/g/alicebergdahl/mvccourse/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/alicebergdahl/mvccourse/?branch=main)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/alicebergdahl/mvccourse/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/alicebergdahl/mvccourse/inspections/7a4519bf-ad9d-474d-a7e5-6c8c74e9318d/code-structure/)
+[![Code Coverage](https://scrutinizer-ci.com/g/alicebergdahl/mvccourse/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/alicebergdahl/mvccourse/inspections/7a4519bf-ad9d-474d-a7e5-6c8c74e9318d/code-structure/test-coverage)
 [![Build Status](https://scrutinizer-ci.com/g/alicebergdahl/mvccourse/badges/build.png?b=main)](https://scrutinizer-ci.com/g/alicebergdahl/mvccourse/build-status/main)

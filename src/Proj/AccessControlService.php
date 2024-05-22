@@ -62,7 +62,7 @@ class AccessControlService
         if ($this->playerHasItem($playerId, 'glasses')) {
             return ['access' => true, 'message' => ''];
         } else {
-            return ['access' => false, 'message' => 'Du måste ha cyyklop för att vara under vatten!'];
+            return ['access' => false, 'message' => 'Du måste ha cyklop för att vara under vatten!'];
         }
     }
 

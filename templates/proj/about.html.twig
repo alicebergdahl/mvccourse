@@ -1,10 +1,26 @@
 {% extends 'proj/proj_base.html.twig' %}
 
-{% block title %}Om spelet{% endblock %}
+{% block title %}Om äventyrsspelet{% endblock %}
 
 {% block body %}
-    <h1>Om spelet</h1>
-    <p>Information om spelet kommer här...</p>
+    <h1>Om äventyrsspelet</h1>
+    <p>I detta spel vinner du genom att hitta och öppna skattkistan! Du börjar i en djungel och ska ta dig genom olika rum för att ta dig till skatten! Problemet? För att gå mellan de olika rummen måste du samla på dig vissa föremål, men du kan bara ha fem föremål i din ryggsäck samtidigt. Skapat av Alice Bergdahl</p>
+    
+    <h2>Enklaste lösningen</h2>
+    <ol>
+        <li>Du är i rum 1 (djungeln), plocka upp ficklampan och elden.</li>
+        <li>Gå genom den östra portalen till rum 2 (grottan).</li>
+        <li>Plocka upp yxan.</li>
+        <li>Gå genom den östra portalen till rum 3 (isen).</li>
+        <li>Plocka upp nyckeln och passet.</li>
+        <li>Gå genom den västra portalen tillbaka till rum 2 (grottan).</li>
+        <li>Släng yxan och elden.</li>
+        <li>Plocka upp cyklopet och pengarna.</li>
+        <li>Gå genom den södra portalen till rum 4 (flygplanet).</li>
+        <li>Gå genom den östra portalen till rum 5 (vattnet).</li>
+        <li>Klicka på skattkistan för att öppna den!</li>
+    </ol>
+    
     <a href="{{ path('proj_about_database') }}" class="proj-btn">Databasinformation</a>
     <a href="{{ path('proj_docs') }}" class="proj-btn">Dokumentation</a>
 {% endblock %}

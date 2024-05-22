@@ -193,6 +193,11 @@ p {
     color: #ffffff;
 }
 
+.docs-btn {
+    position: absolute;
+    left: 50;
+}
+
 
 
 
@@ -296,7 +301,8 @@ p {
     gap: 0px; /* Avstånd mellan knapparna */
     height: 70vh; /* Höjden på grid-container */
     background-color: rgba(0, 0, 0, 0); /* Transparent bakgrundsfärg */
-    width: 100%;
+    width: 100% !important;
+    max-width: 80vw;
 }
 
 .button-container:hover {
@@ -341,29 +347,38 @@ p {
     grid-row: 7;
 }
 
-.exit-form  {
-    grid-column: 11; /* Placera knappen för norr i den tredje kolumnen */
-    grid-row: 1; /* Placera knappen för norr i första raden */
+.exit-form {
+    position: absolute;
+    right: 12%;
+    top: 15%;
 }
 
 .btn-north {
-    grid-column: 6; /* Placera knappen för norr i den tredje kolumnen */
-    grid-row: 1; /* Placera knappen för norr i första raden */
+    position: absolute;
+    left: 42%;
+    top: 10%;
 }
 
 .btn-west {
-    grid-column: 1; /* Placera knappen för väst i första kolumnen */
-    grid-row: 4; /* Placera knappen för väst i den tredje raden */
+    position: absolute;
+    left: 10%;
+    top: 40%;
 }
 
 .btn-east {
-    grid-column: 11; /* Placera knappen för öst i femte kolumnen */
-    grid-row: 4; /* Placera knappen för öst i den tredje raden */
+    position: absolute;
+    right: 10%;
+    top: 40%;
 }
 
 .btn-south {
-    grid-column: 6; /* Placera knappen för syd i den tredje kolumnen */
-    grid-row: 7; /* Placera knappen för syd i femte raden */
+    position: absolute;
+    left: 43%;
+    bottom: 10%;
+}
+
+.item-btn {
+    z-index: 5000;
 }
 
 .current-player {

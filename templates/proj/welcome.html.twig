@@ -3,13 +3,15 @@
 {% block title %}Välkommen!{% endblock %}
 
 {% block body %}
-    <h1>Välkommen till spelet</h1>
-    <p>Ange ditt namn nedan för att börja spelet:</p>
+    <h1>Äventyrsspelet</h1>
+    <p>I detta spel vinner du genom att hitta och öppna skattkistan! Du börjar i en djungel och ska ta dig genom olika rum för att ta dig till skatten! Problemet? För att gå mellan de olika rummen måste du samla på dig vissa föremål, men du kan bara ha fem föremål i din ryggsäck samtidigt.</p>
+    <h2>Ange ditt namn nedan för att börja spelet:</h2>
     <form action="{{ path('proj_start_game') }}" method="post">
         <div class="mb-3">
             <label for="playerName" class="form-label">Namn</label>
             <input type="text" class="form-control" id="playerName" name="playerName" required>
         </div>
+        <br></br>
         <button type="submit" class="btn btn-primary">Starta spelet</button>
     </form>
 {% endblock %}
