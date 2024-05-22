@@ -13,15 +13,28 @@ use App\Entity\Players;
 use App\Proj\JsonDataService;
 use App\Proj\ItemService;
 
+/**
+ * Controller för att hantera API-anrop i JSON-format för projektet.
+ */
 class ProjControllerJson extends AbstractController
 {
     private JsonDataService $jsonDataService;
 
+    /**
+     * Konstruktormetod för att injicera JsonDataService.
+     *
+     * @param JsonDataService $jsonDataService
+     */
     public function __construct(JsonDataService $jsonDataService)
     {
         $this->jsonDataService = $jsonDataService;
     }
 
+    /**
+     * Visar API-hemsidan med tillgängliga rutter.
+     *
+     * @return Response
+     */
     #[Route("/proj/api", name: "proj_api")]
     public function apiHome(): Response
     {
@@ -39,6 +52,11 @@ class ProjControllerJson extends AbstractController
         ]);
     }
 
+    /**
+     * Hämtar alla föremål från JSON-fil och returnerar som JSON-response.
+     *
+     * @return JsonResponse
+     */
     #[Route("/proj/api/items", name: "proj_api_items")]
     public function getAllItemsFromJson(): JsonResponse
     {
@@ -52,8 +70,11 @@ class ProjControllerJson extends AbstractController
         return $response;
     }
 
-    // Additional routes can be added here
-
+    /**
+     * Hämtar alla portalknappar från JSON-fil och returnerar som JSON-response.
+     *
+     * @return JsonResponse
+     */
     #[Route("/proj/api/buttons", name: "proj_api_buttons")]
     public function getAllButtonsFromJson(): JsonResponse
     {
@@ -67,6 +88,12 @@ class ProjControllerJson extends AbstractController
         return $response;
     }
 
+    /**
+     * Hämtar alla föremål från databasen och returnerar som JSON-response.
+     *
+     * @param EntityManagerInterface $entityManager
+     * @return JsonResponse
+     */
     #[Route("/proj/api/playeritems", name: "proj_api_playeritems")]
     public function getAllItemsFromDb(EntityManagerInterface $entityManager): JsonResponse
     {
@@ -89,6 +116,12 @@ class ProjControllerJson extends AbstractController
         return $response;
     }
 
+    /**
+     * Hämtar alla spelare från databasen och returnerar som JSON-response.
+     *
+     * @param EntityManagerInterface $entityManager
+     * @return JsonResponse
+     */
     #[Route("/proj/api/players", name: "proj_api_players")]
     public function getAllPlayers(EntityManagerInterface $entityManager): JsonResponse
     {
@@ -109,6 +142,14 @@ class ProjControllerJson extends AbstractController
         return $response;
     }
 
+    /**
+     * Lägger till ett föremål till en spelares ryggsäck och returnerar meddelande i JSON-response.
+     *
+     * @param int $playerId
+     * @param string $itemName
+     * @param ItemService $itemService
+     * @return JsonResponse
+     */
     #[Route("/proj/api/playeritems/add/{playerId}/{itemName}", name: "proj_api_add_item", methods: ["GET", "POST"])]
     public function addItemToPlayer(int $playerId, string $itemName, ItemService $itemService): JsonResponse
     {
@@ -117,6 +158,14 @@ class ProjControllerJson extends AbstractController
         return new JsonResponse(['message' => $message], JsonResponse::HTTP_OK);
     }
 
+    /**
+     * Tar bort ett föremål från en spelares ryggsäck och returnerar meddelande i JSON-response.
+     *
+     * @param int $playerId
+     * @param string $itemName
+     * @param ItemService $itemService
+     * @return JsonResponse
+     */
     #[Route("/proj/api/playeritems/remove/{playerId}/{itemName}", name: "proj_api_remove_item", methods: ["GET", "POST"])]
     public function removeItemFromPlayer(int $playerId, string $itemName, ItemService $itemService): JsonResponse
     {

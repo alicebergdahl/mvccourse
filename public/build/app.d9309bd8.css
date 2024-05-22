@@ -193,21 +193,13 @@ p {
     color: #ffffff;
 }
 
-.docs-btn {
-    position: absolute;
-    left: 50;
-}
-
-
-
-
 
 /* PROJEKT */
 
 .proj-body {
-    font-family: 'Arial', sans-serif !important; /* Använd Roboto typsnitt för sidan */
-    background-color: #121212; /* Mörkare bakgrundsfärg */
-    color: #fff; /* Vit textfärg */
+    font-family: 'Arial', sans-serif !important;
+    background-color: #121212;
+    color: #fff;
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -228,9 +220,9 @@ p {
 }
 
 .proj-body a {
-    font-family: 'Arial', sans-serif; /* Använd Arial typsnitt för alla länkar på sidan */
-    color: #fff; /* Grön färg för alla länkar */
-    text-decoration: none; /* Ta bort understrykning från alla länkar */
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    text-decoration: none;
     transition: color 0.3s ease;
 }
 
@@ -240,40 +232,40 @@ p {
 
 
 .proj-body h1,h2,h3 {
-    color: #00cc66; /* Grön färg för rubrik */
+    color: #00cc66;
 }
 
 .proj-nav {
-    font-family: 'Arial', sans-serif; /* Använd Arial typsnitt för navigationsmenyn */
-    position: fixed; /* Gör navigationsmenyn fast positionerad */
-    top: 0; /* Placera navigationsmenyn längst upp på sidan */
-    left: 0; /* Placera navigationsmenyn längst till vänster på sidan */
-    width: 100%; /* Bredde navigationsmenyn för att täcka hela sidans bredd */
-    background-color: #222; /* Mörk bakgrundsfärg för navigationsmenyn */
-    padding: 10px; /* Lägg till lite utrymme runt länkarna */
-    z-index: 500; /* Säkerställ att navigationsmenyn visas över innehållet */
+    font-family: 'Arial', sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #222;
+    padding: 10px;
+    z-index: 500;
 }
 
 .proj-nav-list {
     list-style: none;
     padding: 0;
-    margin: 0; /* Ta bort marginaler för att undvika onödigt utrymme */
+    margin: 0;
 }
 
 .proj-nav-item {
-    display: inline-block; /* Visa navigationslänkar bredvid varandra */
-    margin-right: 20px; /* Lägg till lite mellanrum mellan länkarna */
+    display: inline-block;
+    margin-right: 20px;
 }
 
 .proj-nav-link {
-    color: #fff; /* Vit färg för länkar */
+    color: #fff;
     text-decoration: none;
-    font-weight: bold; /* Fet stil för länkar */
-    transition: color 0.3s ease; /* Smidig övergång för färgändring */
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 .proj-nav-link:hover {
-    color: #00cc66; /* Grön färg för länkar vid hover */
+    color: #00cc66;
 }
 
 .proj-btn {
@@ -296,46 +288,45 @@ p {
 
 .button-container {
     display: grid;
-    grid-template-columns: repeat(11, 1fr); /* 5 kolumner med samma bredd */
-    grid-template-rows: repeat(7, 1fr); /* 5 rader med samma höjd */
-    gap: 0px; /* Avstånd mellan knapparna */
-    height: 70vh; /* Höjden på grid-container */
-    background-color: rgba(0, 0, 0, 0); /* Transparent bakgrundsfärg */
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    gap: 0px;
+    height: 70vh;
+    background-color: rgba(0, 0, 0, 0);
     width: 100% !important;
     max-width: 80vw;
 }
 
 .button-container:hover {
-    background-color: rgba(0, 0, 0, 0); /* Transparent bakgrundsfärg vid hover */
+    background-color: rgba(0, 0, 0, 0);
 }
 
 .button-container img:hover {
-    /* Stilar för bilden i knappen för österut vid hover */
-    filter: brightness(70%); /* Göra bilden något mörkare */
+    filter: brightness(70%);
 }
 
 .exit-btn,
 .click-btn {
-    background-color: #4CAF50; /* Grön bakgrundsfärg */
-    color: white; /* Vit textfärg */
-    padding: 10px 20px; /* Lite utrymme runt texten */
-    text-align: center; /* Centrera texten */
-    text-decoration: none; /* Ingen understreckning */
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
     display: inline-block;
-    font-size: 12px; /* Textstorlek */
-    border: none; /* Ingen kantlinje */
-    border-radius: 10px; /* Runda hörn */
-    cursor: pointer; /* Ändra muspekaren till en hand när man hovrar över knappen */
-    transition: background-color 0.3s, box-shadow 0.3s; /* Glattpolisera bakgrundsfärgen när musen hovrar över knappen */
+    font-size: 12px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
     margin: 5px;
     margin-top: 10px;
-    min-width: 100px; /* Ange en minsta bredd för knapparna */
-    white-space: nowrap; /* Förhindra radbrytning */
+    min-width: 100px;
+    white-space: nowrap;
 }
 
 .exit-btn:hover,
 .click-btn:hover {
-    background-color: #45a049; /* Mörkare grön bakgrundsfärg när musen hovrar över knappen */
+    background-color: #45a049;
 }
 
 .treasure-img {
@@ -343,7 +334,7 @@ p {
 }
 
 .treasure {
-    grid-column: 8; /* Placera knappen för norr i den tredje kolumnen */
+    grid-column: 8;
     grid-row: 7;
 }
 
@@ -381,43 +372,38 @@ p {
     z-index: 5000;
 }
 
-.current-player {
-    grid-column: 1; /* Placera knappen för syd i den tredje kolumnen */
-    grid-row: 1;
-}
-
 .player-items {
-    position: fixed; /* Gör player-items fast positionerad */
-    bottom: 0; /* Placera player-items längst ner på sidan */
-    left: 50%; /* Centrera player-items horisontellt */
-    transform: translateX(-50%); /* Justera positionen för att centrera vertikalt */
-    background-color: rgba(0, 0, 0, 0.5); /* Lägg till en bakgrundsfärg med lite transparens för kontrast */
-    padding: 10px; /* Lägg till lite utrymme runt föremålen */
-    display: flex; /* Använd flexbox för att ordna föremålen i en rad */
-    justify-content: center; /* Centrera föremålen horisontellt */
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
     border-radius: 30%;
 }
 
 .player-items ul {
-    list-style: none; /* Ta bort punktlistan från föremålen */
-    margin: 0; /* Ta bort marginaler från listan */
-    padding: 0; /* Ta bort padding från listan */
-    display: flex; /* Använd flexbox för att ordna föremålen i en rad */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
 }
 
 .player-items img {
-    margin: 0 5px; /* Lägg till lite mellanrum mellan föremålen */
+    margin: 0 5px;
 }
 .proj-room {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 80vh; /* Använd height istället för min-height för att ta upp hela sidan */
-    width: 100%; /* Använd width istället för min-width för att ta upp hela sidan */
+    height: 80vh;
+    width: 100%;
     margin: 0;
-    margin-bottom: -10px; /* Ta bort alla marginaler för att säkerställa full bredd */
+    margin-bottom: -10px;
     padding: 100;
-    z-index: 2000; /* Ta bort alla padding för att säkerställa full bredd */
+    z-index: 2000;
 }
 
 .click-btn {

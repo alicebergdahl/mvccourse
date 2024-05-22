@@ -96,6 +96,21 @@ Search.appendIndex(
             "summary": "En\u0020array\u0020av\u0020Card\u002Dobjekt\u0020som\u0020utg\u00F6r\u0020kortleken.",
             "url": "classes/App-Card-DeckOfCards.html#property_cards"
         },                {
+            "fqsen": "\\App\\Controller\\BankController",
+            "name": "BankController",
+            "summary": "",
+            "url": "classes/App-Controller-BankController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\BankController\u003A\u003AstandGame\u0028\u0029",
+            "name": "standGame",
+            "summary": "",
+            "url": "classes/App-Controller-BankController.html#method_standGame"
+        },                {
+            "fqsen": "\\App\\Controller\\BankController\u003A\u003AcalculateHandValue\u0028\u0029",
+            "name": "calculateHandValue",
+            "summary": "Calculates\u0020the\u0020total\u0020value\u0020of\u0020a\u0020hand.",
+            "url": "classes/App-Controller-BankController.html#method_calculateHandValue"
+        },                {
             "fqsen": "\\App\\Controller\\CardControllerJson",
             "name": "CardControllerJson",
             "summary": "",
@@ -186,11 +201,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-GameController.html#method_documentation"
         },                {
-            "fqsen": "\\App\\Controller\\GameController\u003A\u003AstandGame\u0028\u0029",
-            "name": "standGame",
-            "summary": "",
-            "url": "classes/App-Controller-GameController.html#method_standGame"
-        },                {
             "fqsen": "\\App\\Controller\\GameController\u003A\u003AcalculateHandValue\u0028\u0029",
             "name": "calculateHandValue",
             "summary": "Calculates\u0020the\u0020total\u0020value\u0020of\u0020a\u0020hand.",
@@ -210,11 +220,6 @@ Search.appendIndex(
             "name": "listBooks",
             "summary": "",
             "url": "classes/App-Controller-LibraryController.html#method_listBooks"
-        },                {
-            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AseedBooks\u0028\u0029",
-            "name": "seedBooks",
-            "summary": "",
-            "url": "classes/App-Controller-LibraryController.html#method_seedBooks"
         },                {
             "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AaddBook\u0028\u0029",
             "name": "addBook",
@@ -286,55 +291,120 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-LuckyControllerTwig.html#method_lucky"
         },                {
-            "fqsen": "\\App\\Controller\\ProductController",
-            "name": "ProductController",
+            "fqsen": "\\App\\Controller\\MetricController",
+            "name": "MetricController",
             "summary": "",
-            "url": "classes/App-Controller-ProductController.html"
+            "url": "classes/App-Controller-MetricController.html"
         },                {
-            "fqsen": "\\App\\Controller\\ProductController\u003A\u003Aindex\u0028\u0029",
+            "fqsen": "\\App\\Controller\\MetricController\u003A\u003Ametric\u0028\u0029",
+            "name": "metric",
+            "summary": "",
+            "url": "classes/App-Controller-MetricController.html#method_metric"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController",
+            "name": "ProjController",
+            "summary": "Controller\u0020f\u00F6r\u0020att\u0020hantera\u0020olika\u0020funktioner\u0020i\u0020projektet.",
+            "url": "classes/App-Controller-ProjController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Aindex\u0028\u0029",
             "name": "index",
-            "summary": "",
-            "url": "classes/App-Controller-ProductController.html#method_index"
+            "summary": "Visar\u0020startsidan\u0020f\u00F6r\u0020projektet.",
+            "url": "classes/App-Controller-ProjController.html#method_index"
         },                {
-            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AcreateProduct\u0028\u0029",
-            "name": "createProduct",
-            "summary": "",
-            "url": "classes/App-Controller-ProductController.html#method_createProduct"
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Aabout\u0028\u0029",
+            "name": "about",
+            "summary": "Visar\u0020sidan\u0020\u0022Om\u0022.",
+            "url": "classes/App-Controller-ProjController.html#method_about"
         },                {
-            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AshowAllProduct\u0028\u0029",
-            "name": "showAllProduct",
-            "summary": "",
-            "url": "classes/App-Controller-ProductController.html#method_showAllProduct"
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003AaboutDatabase\u0028\u0029",
+            "name": "aboutDatabase",
+            "summary": "Visar\u0020sidan\u0020\u0022Om\u0020databasen\u0022.",
+            "url": "classes/App-Controller-ProjController.html#method_aboutDatabase"
         },                {
-            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AshowProductById\u0028\u0029",
-            "name": "showProductById",
-            "summary": "",
-            "url": "classes/App-Controller-ProductController.html#method_showProductById"
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Adocumentation\u0028\u0029",
+            "name": "documentation",
+            "summary": "Visar\u0020dokumentationssidan.",
+            "url": "classes/App-Controller-ProjController.html#method_documentation"
         },                {
-            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AdeleteProductById\u0028\u0029",
-            "name": "deleteProductById",
-            "summary": "",
-            "url": "classes/App-Controller-ProductController.html#method_deleteProductById"
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Aroom\u0028\u0029",
+            "name": "room",
+            "summary": "Hanterar\u0020logiken\u0020f\u00F6r\u0020spelrummet.",
+            "url": "classes/App-Controller-ProjController.html#method_room"
         },                {
-            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AupdateProduct\u0028\u0029",
-            "name": "updateProduct",
-            "summary": "",
-            "url": "classes/App-Controller-ProductController.html#method_updateProduct"
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Amove\u0028\u0029",
+            "name": "move",
+            "summary": "Hanterar\u0020f\u00F6rflyttning\u0020inom\u0020spelet.",
+            "url": "classes/App-Controller-ProjController.html#method_move"
         },                {
-            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AviewAllProduct\u0028\u0029",
-            "name": "viewAllProduct",
-            "summary": "",
-            "url": "classes/App-Controller-ProductController.html#method_viewAllProduct"
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003AstartGame\u0028\u0029",
+            "name": "startGame",
+            "summary": "Startar\u0020spelet\u0020f\u00F6r\u0020en\u0020ny\u0020spelare.",
+            "url": "classes/App-Controller-ProjController.html#method_startGame"
         },                {
-            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AviewProductWithMinimumValue\u0028\u0029",
-            "name": "viewProductWithMinimumValue",
-            "summary": "",
-            "url": "classes/App-Controller-ProductController.html#method_viewProductWithMinimumValue"
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003AcollectItem\u0028\u0029",
+            "name": "collectItem",
+            "summary": "Hanterar\u0020insamling\u0020av\u0020ett\u0020f\u00F6rem\u00E5l.",
+            "url": "classes/App-Controller-ProjController.html#method_collectItem"
         },                {
-            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AshowProductByMinimumValue\u0028\u0029",
-            "name": "showProductByMinimumValue",
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003AremoveItem\u0028\u0029",
+            "name": "removeItem",
+            "summary": "Hanterar\u0020borttagning\u0020av\u0020ett\u0020f\u00F6rem\u00E5l.",
+            "url": "classes/App-Controller-ProjController.html#method_removeItem"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003AopenTreasure\u0028\u0029",
+            "name": "openTreasure",
+            "summary": "Hanterar\u0020\u00F6ppning\u0020av\u0020en\u0020skatt.",
+            "url": "classes/App-Controller-ProjController.html#method_openTreasure"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjControllerJson",
+            "name": "ProjControllerJson",
+            "summary": "Controller\u0020f\u00F6r\u0020att\u0020hantera\u0020API\u002Danrop\u0020i\u0020JSON\u002Dformat\u0020f\u00F6r\u0020projektet.",
+            "url": "classes/App-Controller-ProjControllerJson.html"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjControllerJson\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Konstruktormetod\u0020f\u00F6r\u0020att\u0020injicera\u0020JsonDataService.",
+            "url": "classes/App-Controller-ProjControllerJson.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjControllerJson\u003A\u003AapiHome\u0028\u0029",
+            "name": "apiHome",
+            "summary": "Visar\u0020API\u002Dhemsidan\u0020med\u0020tillg\u00E4ngliga\u0020rutter.",
+            "url": "classes/App-Controller-ProjControllerJson.html#method_apiHome"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjControllerJson\u003A\u003AgetAllItemsFromJson\u0028\u0029",
+            "name": "getAllItemsFromJson",
+            "summary": "H\u00E4mtar\u0020alla\u0020f\u00F6rem\u00E5l\u0020fr\u00E5n\u0020JSON\u002Dfil\u0020och\u0020returnerar\u0020som\u0020JSON\u002Dresponse.",
+            "url": "classes/App-Controller-ProjControllerJson.html#method_getAllItemsFromJson"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjControllerJson\u003A\u003AgetAllButtonsFromJson\u0028\u0029",
+            "name": "getAllButtonsFromJson",
+            "summary": "H\u00E4mtar\u0020alla\u0020portalknappar\u0020fr\u00E5n\u0020JSON\u002Dfil\u0020och\u0020returnerar\u0020som\u0020JSON\u002Dresponse.",
+            "url": "classes/App-Controller-ProjControllerJson.html#method_getAllButtonsFromJson"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjControllerJson\u003A\u003AgetAllItemsFromDb\u0028\u0029",
+            "name": "getAllItemsFromDb",
+            "summary": "H\u00E4mtar\u0020alla\u0020f\u00F6rem\u00E5l\u0020fr\u00E5n\u0020databasen\u0020och\u0020returnerar\u0020som\u0020JSON\u002Dresponse.",
+            "url": "classes/App-Controller-ProjControllerJson.html#method_getAllItemsFromDb"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjControllerJson\u003A\u003AgetAllPlayers\u0028\u0029",
+            "name": "getAllPlayers",
+            "summary": "H\u00E4mtar\u0020alla\u0020spelare\u0020fr\u00E5n\u0020databasen\u0020och\u0020returnerar\u0020som\u0020JSON\u002Dresponse.",
+            "url": "classes/App-Controller-ProjControllerJson.html#method_getAllPlayers"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjControllerJson\u003A\u003AaddItemToPlayer\u0028\u0029",
+            "name": "addItemToPlayer",
+            "summary": "L\u00E4gger\u0020till\u0020ett\u0020f\u00F6rem\u00E5l\u0020till\u0020en\u0020spelares\u0020ryggs\u00E4ck\u0020och\u0020returnerar\u0020meddelande\u0020i\u0020JSON\u002Dresponse.",
+            "url": "classes/App-Controller-ProjControllerJson.html#method_addItemToPlayer"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjControllerJson\u003A\u003AremoveItemFromPlayer\u0028\u0029",
+            "name": "removeItemFromPlayer",
+            "summary": "Tar\u0020bort\u0020ett\u0020f\u00F6rem\u00E5l\u0020fr\u00E5n\u0020en\u0020spelares\u0020ryggs\u00E4ck\u0020och\u0020returnerar\u0020meddelande\u0020i\u0020JSON\u002Dresponse.",
+            "url": "classes/App-Controller-ProjControllerJson.html#method_removeItemFromPlayer"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjControllerJson\u003A\u003A\u0024jsonDataService",
+            "name": "jsonDataService",
             "summary": "",
-            "url": "classes/App-Controller-ProductController.html#method_showProductByMinimumValue"
+            "url": "classes/App-Controller-ProjControllerJson.html#property_jsonDataService"
         },                {
             "fqsen": "\\App\\Controller\\SessionDebugController",
             "name": "SessionDebugController",
@@ -426,50 +496,95 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Entity-Book.html#property_image"
         },                {
-            "fqsen": "\\App\\Entity\\Product",
-            "name": "Product",
+            "fqsen": "\\App\\Entity\\Items",
+            "name": "Items",
             "summary": "",
-            "url": "classes/App-Entity-Product.html"
+            "url": "classes/App-Entity-Items.html"
         },                {
-            "fqsen": "\\App\\Entity\\Product\u003A\u003AgetId\u0028\u0029",
+            "fqsen": "\\App\\Entity\\Items\u003A\u003AgetId\u0028\u0029",
             "name": "getId",
             "summary": "",
-            "url": "classes/App-Entity-Product.html#method_getId"
+            "url": "classes/App-Entity-Items.html#method_getId"
         },                {
-            "fqsen": "\\App\\Entity\\Product\u003A\u003AgetName\u0028\u0029",
-            "name": "getName",
+            "fqsen": "\\App\\Entity\\Items\u003A\u003AgetPlayername\u0028\u0029",
+            "name": "getPlayername",
             "summary": "",
-            "url": "classes/App-Entity-Product.html#method_getName"
+            "url": "classes/App-Entity-Items.html#method_getPlayername"
         },                {
-            "fqsen": "\\App\\Entity\\Product\u003A\u003AsetName\u0028\u0029",
-            "name": "setName",
+            "fqsen": "\\App\\Entity\\Items\u003A\u003AsetPlayername\u0028\u0029",
+            "name": "setPlayername",
             "summary": "",
-            "url": "classes/App-Entity-Product.html#method_setName"
+            "url": "classes/App-Entity-Items.html#method_setPlayername"
         },                {
-            "fqsen": "\\App\\Entity\\Product\u003A\u003AgetValue\u0028\u0029",
-            "name": "getValue",
+            "fqsen": "\\App\\Entity\\Items\u003A\u003AgetItemname\u0028\u0029",
+            "name": "getItemname",
             "summary": "",
-            "url": "classes/App-Entity-Product.html#method_getValue"
+            "url": "classes/App-Entity-Items.html#method_getItemname"
         },                {
-            "fqsen": "\\App\\Entity\\Product\u003A\u003AsetValue\u0028\u0029",
-            "name": "setValue",
+            "fqsen": "\\App\\Entity\\Items\u003A\u003AsetItemname\u0028\u0029",
+            "name": "setItemname",
             "summary": "",
-            "url": "classes/App-Entity-Product.html#method_setValue"
+            "url": "classes/App-Entity-Items.html#method_setItemname"
         },                {
-            "fqsen": "\\App\\Entity\\Product\u003A\u003A\u0024id",
+            "fqsen": "\\App\\Entity\\Items\u003A\u003AgetAmount\u0028\u0029",
+            "name": "getAmount",
+            "summary": "",
+            "url": "classes/App-Entity-Items.html#method_getAmount"
+        },                {
+            "fqsen": "\\App\\Entity\\Items\u003A\u003AsetAmount\u0028\u0029",
+            "name": "setAmount",
+            "summary": "",
+            "url": "classes/App-Entity-Items.html#method_setAmount"
+        },                {
+            "fqsen": "\\App\\Entity\\Items\u003A\u003A\u0024id",
             "name": "id",
             "summary": "",
-            "url": "classes/App-Entity-Product.html#property_id"
+            "url": "classes/App-Entity-Items.html#property_id"
         },                {
-            "fqsen": "\\App\\Entity\\Product\u003A\u003A\u0024name",
-            "name": "name",
+            "fqsen": "\\App\\Entity\\Items\u003A\u003A\u0024playername",
+            "name": "playername",
             "summary": "",
-            "url": "classes/App-Entity-Product.html#property_name"
+            "url": "classes/App-Entity-Items.html#property_playername"
         },                {
-            "fqsen": "\\App\\Entity\\Product\u003A\u003A\u0024value",
-            "name": "value",
+            "fqsen": "\\App\\Entity\\Items\u003A\u003A\u0024itemname",
+            "name": "itemname",
             "summary": "",
-            "url": "classes/App-Entity-Product.html#property_value"
+            "url": "classes/App-Entity-Items.html#property_itemname"
+        },                {
+            "fqsen": "\\App\\Entity\\Items\u003A\u003A\u0024amount",
+            "name": "amount",
+            "summary": "",
+            "url": "classes/App-Entity-Items.html#property_amount"
+        },                {
+            "fqsen": "\\App\\Entity\\Players",
+            "name": "Players",
+            "summary": "",
+            "url": "classes/App-Entity-Players.html"
+        },                {
+            "fqsen": "\\App\\Entity\\Players\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "",
+            "url": "classes/App-Entity-Players.html#method_getId"
+        },                {
+            "fqsen": "\\App\\Entity\\Players\u003A\u003AgetPlayername\u0028\u0029",
+            "name": "getPlayername",
+            "summary": "",
+            "url": "classes/App-Entity-Players.html#method_getPlayername"
+        },                {
+            "fqsen": "\\App\\Entity\\Players\u003A\u003AsetPlayername\u0028\u0029",
+            "name": "setPlayername",
+            "summary": "",
+            "url": "classes/App-Entity-Players.html#method_setPlayername"
+        },                {
+            "fqsen": "\\App\\Entity\\Players\u003A\u003A\u0024id",
+            "name": "id",
+            "summary": "",
+            "url": "classes/App-Entity-Players.html#property_id"
+        },                {
+            "fqsen": "\\App\\Entity\\Players\u003A\u003A\u0024playername",
+            "name": "playername",
+            "summary": "",
+            "url": "classes/App-Entity-Players.html#property_playername"
         },                {
             "fqsen": "\\App\\Form\\BookType",
             "name": "BookType",
@@ -491,6 +606,136 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Kernel.html"
         },                {
+            "fqsen": "\\App\\Proj\\AccessControlService",
+            "name": "AccessControlService",
+            "summary": "Serviceklass\u0020som\u0020hanterar\u0020\u00E5tkomstkontroll\u0020till\u0020olika\u0020rum.",
+            "url": "classes/App-Proj-AccessControlService.html"
+        },                {
+            "fqsen": "\\App\\Proj\\AccessControlService\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Skapar\u0020en\u0020AccessControlService.",
+            "url": "classes/App-Proj-AccessControlService.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Proj\\AccessControlService\u003A\u003AhasAccessToRoom\u0028\u0029",
+            "name": "hasAccessToRoom",
+            "summary": "Kontrollerar\u0020om\u0020en\u0020spelare\u0020har\u0020\u00E5tkomst\u0020till\u0020ett\u0020specifikt\u0020rum.",
+            "url": "classes/App-Proj-AccessControlService.html#method_hasAccessToRoom"
+        },                {
+            "fqsen": "\\App\\Proj\\AccessControlService\u003A\u003AcheckAccessToRoom2\u0028\u0029",
+            "name": "checkAccessToRoom2",
+            "summary": "Kontrollerar\u0020\u00E5tkomst\u0020till\u0020rum\u00202.",
+            "url": "classes/App-Proj-AccessControlService.html#method_checkAccessToRoom2"
+        },                {
+            "fqsen": "\\App\\Proj\\AccessControlService\u003A\u003AcheckAccessToRoom3\u0028\u0029",
+            "name": "checkAccessToRoom3",
+            "summary": "Kontrollerar\u0020\u00E5tkomst\u0020till\u0020rum\u00203.",
+            "url": "classes/App-Proj-AccessControlService.html#method_checkAccessToRoom3"
+        },                {
+            "fqsen": "\\App\\Proj\\AccessControlService\u003A\u003AcheckAccessToRoom4\u0028\u0029",
+            "name": "checkAccessToRoom4",
+            "summary": "Kontrollerar\u0020\u00E5tkomst\u0020till\u0020rum\u00204.",
+            "url": "classes/App-Proj-AccessControlService.html#method_checkAccessToRoom4"
+        },                {
+            "fqsen": "\\App\\Proj\\AccessControlService\u003A\u003AcheckAccessToRoom5\u0028\u0029",
+            "name": "checkAccessToRoom5",
+            "summary": "Kontrollerar\u0020\u00E5tkomst\u0020till\u0020rum\u00205.",
+            "url": "classes/App-Proj-AccessControlService.html#method_checkAccessToRoom5"
+        },                {
+            "fqsen": "\\App\\Proj\\AccessControlService\u003A\u003AplayerHasItem\u0028\u0029",
+            "name": "playerHasItem",
+            "summary": "Kontrollerar\u0020om\u0020en\u0020spelare\u0020har\u0020det\u0020angivna\u0020f\u00F6rem\u00E5let.",
+            "url": "classes/App-Proj-AccessControlService.html#method_playerHasItem"
+        },                {
+            "fqsen": "\\App\\Proj\\AccessControlService\u003A\u003A\u0024itemsRepository",
+            "name": "itemsRepository",
+            "summary": "",
+            "url": "classes/App-Proj-AccessControlService.html#property_itemsRepository"
+        },                {
+            "fqsen": "\\App\\Proj\\GameService",
+            "name": "GameService",
+            "summary": "Klassen\u0020GameService\u0020hanterar\u0020spelets\u0020logik,\u0020inklusive\u0020navigering\u0020mellan\u0020rum.",
+            "url": "classes/App-Proj-GameService.html"
+        },                {
+            "fqsen": "\\App\\Proj\\GameService\u003A\u003AgetCurrentRoom\u0028\u0029",
+            "name": "getCurrentRoom",
+            "summary": "Returnerar\u0020det\u0020aktuella\u0020rummet\u0020d\u00E4r\u0020spelaren\u0020befinner\u0020sig.",
+            "url": "classes/App-Proj-GameService.html#method_getCurrentRoom"
+        },                {
+            "fqsen": "\\App\\Proj\\GameService\u003A\u003AsetCurrentRoom\u0028\u0029",
+            "name": "setCurrentRoom",
+            "summary": "S\u00E4tter\u0020det\u0020aktuella\u0020rummet\u0020d\u00E4r\u0020spelaren\u0020befinner\u0020sig.",
+            "url": "classes/App-Proj-GameService.html#method_setCurrentRoom"
+        },                {
+            "fqsen": "\\App\\Proj\\GameService\u003A\u003AgetAvailableDirections\u0028\u0029",
+            "name": "getAvailableDirections",
+            "summary": "Returnerar\u0020en\u0020lista\u0020\u00F6ver\u0020tillg\u00E4ngliga\u0020riktningar\u0020fr\u00E5n\u0020det\u0020aktuella\u0020rummet.",
+            "url": "classes/App-Proj-GameService.html#method_getAvailableDirections"
+        },                {
+            "fqsen": "\\App\\Proj\\GameService\u003A\u003AmoveTo\u0028\u0029",
+            "name": "moveTo",
+            "summary": "Flyttar\u0020spelaren\u0020till\u0020ett\u0020angr\u00E4nsande\u0020rum\u0020baserat\u0020p\u00E5\u0020angiven\u0020riktning.",
+            "url": "classes/App-Proj-GameService.html#method_moveTo"
+        },                {
+            "fqsen": "\\App\\Proj\\GameService\u003A\u003A\u0024currentRoom",
+            "name": "currentRoom",
+            "summary": "Aktuellt\u0020rum\u0020d\u00E4r\u0020spelaren\u0020befinner\u0020sig.",
+            "url": "classes/App-Proj-GameService.html#property_currentRoom"
+        },                {
+            "fqsen": "\\App\\Proj\\GameService\u003A\u003A\u0024rooms",
+            "name": "rooms",
+            "summary": "Definition\u0020av\u0020olika\u0020rum\u0020och\u0020deras\u0020anslutningar\u0020till\u0020andra\u0020rum.",
+            "url": "classes/App-Proj-GameService.html#property_rooms"
+        },                {
+            "fqsen": "\\App\\Proj\\ItemService",
+            "name": "ItemService",
+            "summary": "Klassen\u0020ItemService\u0020hanterar\u0020operationer\u0020relaterade\u0020till\u0020spelarf\u00F6rem\u00E5l\u0020i\u0020databasen.",
+            "url": "classes/App-Proj-ItemService.html"
+        },                {
+            "fqsen": "\\App\\Proj\\ItemService\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Skapar\u0020en\u0020ny\u0020instans\u0020av\u0020ItemService.",
+            "url": "classes/App-Proj-ItemService.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Proj\\ItemService\u003A\u003AaddItemToPlayer\u0028\u0029",
+            "name": "addItemToPlayer",
+            "summary": "L\u00E4gger\u0020till\u0020ett\u0020f\u00F6rem\u00E5l\u0020till\u0020spelaren\u0020med\u0020det\u0020angivna\u0020spelar\u002DID\u003At.",
+            "url": "classes/App-Proj-ItemService.html#method_addItemToPlayer"
+        },                {
+            "fqsen": "\\App\\Proj\\ItemService\u003A\u003AgetPlayerItems\u0028\u0029",
+            "name": "getPlayerItems",
+            "summary": "H\u00E4mtar\u0020alla\u0020f\u00F6rem\u00E5l\u0020som\u0020tillh\u00F6r\u0020en\u0020viss\u0020spelare.",
+            "url": "classes/App-Proj-ItemService.html#method_getPlayerItems"
+        },                {
+            "fqsen": "\\App\\Proj\\ItemService\u003A\u003AremoveItemByName\u0028\u0029",
+            "name": "removeItemByName",
+            "summary": "Tar\u0020bort\u0020ett\u0020f\u00F6rem\u00E5l\u0020fr\u00E5n\u0020databasen\u0020baserat\u0020p\u00E5\u0020f\u00F6rem\u00E5lets\u0020namn.",
+            "url": "classes/App-Proj-ItemService.html#method_removeItemByName"
+        },                {
+            "fqsen": "\\App\\Proj\\ItemService\u003A\u003AplayerHasItem\u0028\u0029",
+            "name": "playerHasItem",
+            "summary": "Kontrollerar\u0020om\u0020en\u0020spelare\u0020har\u0020ett\u0020visst\u0020f\u00F6rem\u00E5l.",
+            "url": "classes/App-Proj-ItemService.html#method_playerHasItem"
+        },                {
+            "fqsen": "\\App\\Proj\\ItemService\u003A\u003A\u0024entityManager",
+            "name": "entityManager",
+            "summary": "Entitetsmanager\u0020f\u00F6r\u0020databasinteraktion.",
+            "url": "classes/App-Proj-ItemService.html#property_entityManager"
+        },                {
+            "fqsen": "\\App\\Proj\\JsonDataService",
+            "name": "JsonDataService",
+            "summary": "Klassen\u0020JsonDataService\u0020hanterar\u0020inl\u00E4sning\u0020av\u0020JSON\u002Ddata\u0020fr\u00E5n\u0020filer.",
+            "url": "classes/App-Proj-JsonDataService.html"
+        },                {
+            "fqsen": "\\App\\Proj\\JsonDataService\u003A\u003AloadItems\u0028\u0029",
+            "name": "loadItems",
+            "summary": "L\u00E4ser\u0020in\u0020och\u0020returnerar\u0020JSON\u002Ddata\u0020fr\u00E5n\u0020en\u0020fil.",
+            "url": "classes/App-Proj-JsonDataService.html#method_loadItems"
+        },                {
+            "fqsen": "\\App\\Proj\\JsonDataService\u003A\u003AloadButtons\u0028\u0029",
+            "name": "loadButtons",
+            "summary": "L\u00E4ser\u0020in\u0020och\u0020returnerar\u0020JSON\u002Ddata\u0020fr\u00E5n\u0020en\u0020fil.",
+            "url": "classes/App-Proj-JsonDataService.html#method_loadButtons"
+        },                {
             "fqsen": "\\App\\Repository\\BookRepository",
             "name": "BookRepository",
             "summary": "",
@@ -501,25 +746,25 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Repository-BookRepository.html#method___construct"
         },                {
-            "fqsen": "\\App\\Repository\\ProductRepository",
-            "name": "ProductRepository",
+            "fqsen": "\\App\\Repository\\ItemsRepository",
+            "name": "ItemsRepository",
             "summary": "",
-            "url": "classes/App-Repository-ProductRepository.html"
+            "url": "classes/App-Repository-ItemsRepository.html"
         },                {
-            "fqsen": "\\App\\Repository\\ProductRepository\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\App\\Repository\\ItemsRepository\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/App-Repository-ProductRepository.html#method___construct"
+            "url": "classes/App-Repository-ItemsRepository.html#method___construct"
         },                {
-            "fqsen": "\\App\\Repository\\ProductRepository\u003A\u003AfindByMinimumValue\u0028\u0029",
-            "name": "findByMinimumValue",
-            "summary": "Find\u0020all\u0020producs\u0020having\u0020a\u0020value\u0020above\u0020the\u0020specified\u0020one.",
-            "url": "classes/App-Repository-ProductRepository.html#method_findByMinimumValue"
+            "fqsen": "\\App\\Repository\\PlayersRepository",
+            "name": "PlayersRepository",
+            "summary": "",
+            "url": "classes/App-Repository-PlayersRepository.html"
         },                {
-            "fqsen": "\\App\\Repository\\ProductRepository\u003A\u003AfindByMinimumValue2\u0028\u0029",
-            "name": "findByMinimumValue2",
-            "summary": "Find\u0020all\u0020products\u0020having\u0020a\u0020value\u0020above\u0020the\u0020specified\u0020one\u0020using\u0020raw\u0020SQL.",
-            "url": "classes/App-Repository-ProductRepository.html#method_findByMinimumValue2"
+            "fqsen": "\\App\\Repository\\PlayersRepository\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Repository-PlayersRepository.html#method___construct"
         },                {
             "fqsen": "\\",
             "name": "\\",
@@ -550,6 +795,11 @@ Search.appendIndex(
             "name": "App",
             "summary": "",
             "url": "namespaces/app.html"
+        },                {
+            "fqsen": "\\App\\Proj",
+            "name": "Proj",
+            "summary": "",
+            "url": "namespaces/app-proj.html"
         },                {
             "fqsen": "\\App\\Repository",
             "name": "Repository",

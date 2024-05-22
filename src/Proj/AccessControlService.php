@@ -5,15 +5,33 @@ namespace App\Proj;
 use App\Entity\Items;
 use App\Repository\ItemsRepository;
 
+/**
+ * Serviceklass som hanterar åtkomstkontroll till olika rum.
+ */
 class AccessControlService
 {
+    /**
+     * @var ItemsRepository|null Repository för föremål.
+     */
     private ?ItemsRepository $itemsRepository;
 
+    /**
+     * Skapar en AccessControlService.
+     *
+     * @param ItemsRepository|null $itemsRepository Repository för föremål.
+     */
     public function __construct(ItemsRepository $itemsRepository = null)
     {
         $this->itemsRepository = $itemsRepository;
     }
 
+    /**
+     * Kontrollerar om en spelare har åtkomst till ett specifikt rum.
+     *
+     * @param int $roomId ID för rummet.
+     * @param int $playerId ID för spelaren.
+     * @return array<mixed> En array som indikerar om spelaren har åtkomst och ett eventuellt meddelande.
+     */
     public function hasAccessToRoom(int $roomId, int $playerId): array
     {
         switch ($roomId) {
@@ -30,6 +48,12 @@ class AccessControlService
         }
     }
 
+    /**
+     * Kontrollerar åtkomst till rum 2.
+     *
+     * @param int $playerId ID för spelaren.
+     * @return array<mixed> En array som indikerar om spelaren har åtkomst och ett eventuellt meddelande.
+     */
     private function checkAccessToRoom2(int $playerId): array
     {
         if ($this->playerHasItem($playerId, 'flashlight')) {
@@ -39,6 +63,12 @@ class AccessControlService
         }
     }
 
+    /**
+    * Kontrollerar åtkomst till rum 3.
+    *
+    * @param int $playerId ID för spelaren.
+    * @return array<mixed> En array som indikerar om spelaren har åtkomst och ett eventuellt meddelande.
+    */
     private function checkAccessToRoom3(int $playerId): array
     {
         if ($this->playerHasItem($playerId, 'fire') && $this->playerHasItem($playerId, 'icepicker')) {
@@ -48,6 +78,12 @@ class AccessControlService
         }
     }
 
+    /**
+     * Kontrollerar åtkomst till rum 4.
+     *
+     * @param int $playerId ID för spelaren.
+     * @return array<mixed> En array som indikerar om spelaren har åtkomst och ett eventuellt meddelande.
+     */
     private function checkAccessToRoom4(int $playerId): array
     {
         if ($this->playerHasItem($playerId, 'money') && $this->playerHasItem($playerId, 'passport')) {
@@ -57,6 +93,12 @@ class AccessControlService
         }
     }
 
+    /**
+     * Kontrollerar åtkomst till rum 5.
+     *
+     * @param int $playerId ID för spelaren.
+     * @return array<mixed> En array som indikerar om spelaren har åtkomst och ett eventuellt meddelande.
+     */
     private function checkAccessToRoom5(int $playerId): array
     {
         if ($this->playerHasItem($playerId, 'glasses')) {
@@ -66,8 +108,19 @@ class AccessControlService
         }
     }
 
+    /**
+     * Kontrollerar om en spelare har det angivna föremålet.
+     *
+     * @param int $playerId ID för spelaren.
+     * @param string $itemName Namnet på föremålet.
+     * @return bool Returnerar true om spelaren har föremålet, annars false.
+     */
     private function playerHasItem(int $playerId, string $itemName): bool
     {
+        if ($this->itemsRepository === null) {
+            return false;
+        }
+
         $playerItems = $this->itemsRepository->findBy(['playername' => (string) $playerId]);
 
         foreach ($playerItems as $item) {
