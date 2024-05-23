@@ -5,8 +5,12 @@
 {% block body %}
     <h1>API routes för projektet</h1>
     <ul>
-        {% for name, route in routes %}
-            <li><a href="{{ route }}">{{ name }}</a></li>
+        {% for name, route_name in routes %}
+            {% if route_name in ['proj_api_add_item', 'proj_api_remove_item'] %}
+                <li><a href="{{ path(route_name, {'playerId': 1, 'itemName': 'money'}) }}">{{ name }}</a></li>
+            {% else %}
+                <li><a href="{{ path(route_name) }}">{{ name }}</a></li>
+            {% endif %}
         {% endfor %}
     </ul>
 {% endblock %}

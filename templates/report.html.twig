@@ -60,16 +60,25 @@
             </div>
             <div class="item">
                 <h2 id="kmom10">Kmom10</h2>
-                <p>TEXT HÄR</p>
-                <p>TEXT HÄR</p>
-                <p>TEXT HÄR</p>
-                <p>TEXT HÄR</p>
-                <p>TEXT HÄR</p>
-                <p>TEXT HÄR</p>
-                <p>TEXT HÄR</p>
-                <p>TEXT HÄR</p>
-                <p>TEXT HÄR</p>
-                <p>TEXT HÄR</p>
+                <p>Jag har valt att göra ett äventyrsspel som slutprojekt. I detta spel vinner du genom att hitta och öppna skattkistan! Du börjar i en djungel och ska ta dig genom olika rum för att ta dig till skatten! Problemet? För att gå mellan de olika rummen måste du samla på dig vissa föremål, men du kan bara ha fem föremål i din ryggsäck samtidigt.</p>
+
+                <p>För att göra grunden till projektet så skapade jag en controller. Jag använde mig sedan av servicemoduler för att minimera koden i controllern. Jag har en modul som hanterar spellogiken för att ta sig mellan rummen, en som hanterar spellogiken för alla föremål, en för att hantera mina jsonfiler, och en som kontrollerar om man har tillgång till ett rum man försöker ta sig till.</p>
+
+                <p>När det kom till enhetstester av mina filer så stötte jag på lite problem. Jag lyckades fixa många tester och väldigt bra kodtäckning lokalt men alla tester som har med databasen att göra gick inte igenom på scrutinizer. Jag har felsökt, försökt ändra i .env-filer för att konfigurer SQLite till scrutinizer, och testat att skriva testen på många olika sätt men de gick fortfarande inte igenom. Detta innebär att min kodtäcking just nu är mycket sämre än jag hoppats på (70%) då stor del av min kod har med databasen att göra. </p>
+
+                <p>För att uppfylla krav 4 så gjorde jag en till controller som hanterar all JSON API till projektet. Jag valde att skapa en JSON-fil för alla portalknappar och föremål som finns i de olika rummen. Detta för att det inte är något som en spelare ska kunna ändra eller lägga till men det är enkelt för spelutvecklaren att ändra i JSON-filerna. Varje portalknappar har tre värden: roomnumber, direction och toroom. Alla items har två värden: itemname och room. Jag valde att skapa 6 stycken routes för mitt JSON API. Det finns en route som visar alla föremål från JSON-filen och en route som visar knapparna. Sedan skapade jag fyra routes som har med min databas att göra. EN route visar alla spelare som finns i tabellen players och en visar alla föremål som spelarna har i sina ryggsäckar (tabellen items). Jag har även två POST-routes. En som lägger till ett föremål i en spelares ryggsäck och en som tar bort en. Det finns länkar till alla routes i /proj/api.</p>
+
+                <p>För att uppfylla krav 5 skapade jag en databas med två tabeller: players och items. Tabellerna hanterar spelarinformation respektive föremål som spelare samlar på sig. Jag valde att använda SQLite som databas eftersom det är enkelt att konfigurera och passar bra för mindre projekt. För att visualisera databasens struktur skapade jag ett ER-diagram som visar relationerna mellan tabellerna. Jag lade till en bild av detta diagram på sidan proj/about/database. Tabellerna är enkla: players lagrar spelar-ID och spelarens namn, medan items lagrar föremåls-ID, spelar-ID, föremålsnamn och antal föremål. För att hantera relationen mellan tabellerna, använder jag spelarens ID som en främmande nyckel i items-tabellen. Jag genomförde enhetstester för att säkerställa att databasfunktionerna fungerar korrekt, men stötte på problem med att få dessa tester att fungera på Scrutinizer. Trots flera försök att konfigurera SQLite i Scrutinizer gick testerna inte igenom, vilket påverkade min totala kodtäckning negativt. För att länka till databassidan lade jag till en länk från proj/about till proj/about/database. </p>
+
+                <p>Att använda en ORM som Doctrine i Symfony har sina fördelar. ORMs gör det enklare att hantera databasoperationer direkt i koden, utan att behöva skriva SQL-frågor. Detta sparar tid och minskar risken för fel. En nackdel är att ORMs kan skapa ineffektiva frågor som påverkar prestandan. Traditionella metoder ger mer kontroll över SQL-frågor och optimeringar, vilket kan förbättra prestandan i vissa fall. En stor fördel med ORM är dess förmåga att hantera komplexa relationer och erbjuda databasagnostiska lösningar, vilket gör applikationen mer flexibel och enklare att migrera mellan olika databassystem. Under databaskursen arbetade vi direkt med SQL, vilket gav en djupare förståelse för hur databaser fungerar. Båda metoderna har sina styrkor och svagheter. ORM är bra för snabb utveckling och underhåll, medan traditionell metod kan vara bättre för prestandakritiska applikationer. Valet beror på projektets behov och komplexitet.</p>
+
+                <p>För krav 6 så har jag här tagit fram några avancerade features i mitt projekt. Tre saker som har varit extra svåra att ta fram men som jag är nöjd över i detta projekt är hur jag uppdelade data i JSON och databas i ORM, implementering av AccessControlService och sparning av användardata.</p>
+
+                <p>I mitt projekt har jag effektivt utnyttjat både JSON-filer och en databas med hjälp av ORM (Object-Relational Mapping). JSON-filer används för att lagra data som inte behöver ändras dynamiskt under spelets gång, utan endast av spelutvecklaren. Detta inkluderar föremål och knappar som används i spelet. Å andra sidan används databasen för att lagra dynamiska data som uppdateras under spelets gång, såsom spelarens föremål och status. Genom att använda databasen kan jag enkelt hantera POST-förfrågningar och andra dynamiska interaktioner.</p>
+
+                <p>För att säkerställa att spelaren måste ha vissa föremål i sin ryggsäck för att ta sig genom specifika rum, har jag implementerat en servicefil kallad AccessControlService. Denna service kontrollerar spelarens föremål och avgör om spelaren har tillgång till nästa rum eller inte. Till exempel, spelaren måste ha en ficklampa för att gå in i grottan eller ett pass och pengar för att passera genom tullen. Detta tillägg har inte bara ökat spelets komplexitet och utmaning, utan också bidragit till en mer engagerande spelupplevelse.</p>
+
+                <p>En annan viktig funktion jag har implementerat är möjligheten för spelaren att ange ett användarnamn vid spelets början. Detta gör att spelets data, inklusive spelarens ID och föremål i ryggsäcken, sparas individuellt för varje användare. Denna data kan sedan användas för statistik och analys av spelarnas beteende. Dessutom syns dessa användare och deras föremål i API:et, vilket möjliggör enkel åtkomst och manipulation av data via olika API-endpoints. Detta har skapat en mer personlig och dynamisk spelupplevelse.</p>
             </div>
         </div>
     </div>

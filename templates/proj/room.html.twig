@@ -61,5 +61,16 @@
             </ul>
         </div>
 
+                  <div class="current-player">
+                {% if app.session.get('currentplayer') is defined %}
+                {% set currentPlayerId = app.session.get('currentplayer') %}
+                {% set currentPlayer = playersRepository.find(currentPlayerId) %}
+                {% if currentPlayer is not null %}
+                    <p>Player ID: {{ currentPlayer.getId() }}</p>
+                    <p>Player Name: {{ currentPlayer.getPlayername() }}</p>
+                {% endif %}
+            {% endif %}
+            </div>
+
     </main>
 {% endblock %}

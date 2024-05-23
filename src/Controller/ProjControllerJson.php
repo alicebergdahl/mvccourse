@@ -39,12 +39,12 @@ class ProjControllerJson extends AbstractController
     public function apiHome(): Response
     {
         $routes = [
-            'Visa alla föremål' => '/proj/api/items',
-            'Visa alla portalknappar' => '/proj/api/buttons',
-            'Visa alla föremål som spelare har i ryggsäcken' => '/proj/api/playeritems',
-            'Visa alla spelare' => '/proj/api/players',
-            'Lägg till föremål till spelares ryggsäck (money till spelare med id 1)' => '/proj/api/playeritems/add/1/money',
-            'Ta bort föremål från spelares ryggsäck (money från spelare med id 1)' => '/proj/api/playeritems/remove/1/money',
+            'Visa alla föremål' => 'proj_api_items',
+            'Visa alla portalknappar' => 'proj_api_buttons',
+            'Visa alla föremål som spelare har i ryggsäcken' => 'proj_api_playeritems',
+            'Visa alla spelare' => 'proj_api_players',
+            'Lägg till föremål till spelares ryggsäck (money till spelare med id 1)' => 'proj_api_add_item',
+            'Ta bort föremål från spelares ryggsäck (money från spelare med id 1)' => 'proj_api_remove_item',
         ];
 
         return $this->render('proj/api.html.twig', [

@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MetricController extends AbstractController
 {
-    #[Route("/metric", name: "metric")]
+    #[Route("/metrics", name: "metric")]
     public function metric(): Response
     {
 
